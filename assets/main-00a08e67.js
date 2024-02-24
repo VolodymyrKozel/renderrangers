@@ -42,4 +42,4 @@ import{a as d}from"./vendor-0cb09735.js";(function(){const e=document.createElem
         <img class="support-img" src="./img/support/${s}.png" alt="${e}" />
       </a>
     </li>`}console.log("pop up");
-//# sourceMappingURL=main-932f67b6.js.map
+//# sourceMappingURL=main-00a08e67.js.map
