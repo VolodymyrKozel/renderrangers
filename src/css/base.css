@@ -13,13 +13,16 @@ body {
   font-size: 14px;
   background-color: var(--white);
 }
+
 body.dark-theme {
   background-color: var(--black);
   color: var(--white);
 }
+
 body.dark-theme a {
   color: var(--white);
 }
+
 body.dark-theme h1 {
   color: var(--white);
 }
@@ -28,44 +31,53 @@ body.dark-theme h1 {
   min-width: 320px;
   max-width: 375px;
   margin: 0 auto;
-  padding: 0 20px;
+  /* padding: 0 20px; */
 }
+
 .aside {
   display: flex;
   flex-wrap: wrap;
   gap: 40px;
   height: fit-content;
 }
+
 @media screen and (max-width: 767.99px) {
   .sellers-item:nth-child(n + 2) {
     display: none;
   }
 }
+
 @media screen and (max-width: 1439.99px) {
   .sellers-item:nth-child(n + 4) {
     display: none;
   }
 }
+
 @media screen and (min-width: 768px) {
   .container {
     max-width: 768px;
     padding: 0 32px;
   }
+
   .aside {
     gap: 32px;
   }
 }
+
 @media screen and (min-width: 1440px) {
   .container-flex-xl {
     display: flex;
   }
+
   .container {
     max-width: 1440px;
     padding: 0 24px;
   }
+
   .aside {
     width: 356px;
   }
+
   .main {
     width: 996px;
   }
