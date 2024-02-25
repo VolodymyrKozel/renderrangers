@@ -6,9 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Home</title>
     
-    <script type="module" crossorigin src="/renderrangers/assets/vendor-0cb09735.js"></script>
-    <script type="module" crossorigin src="/renderrangers/assets/main-2806440a.js"></script>
-    <link rel="stylesheet" href="/renderrangers/assets/main-6e3b60af.css">
+    <script type="module" crossorigin src="/renderrangers/commonHelpers.js"></script>
+    <link rel="modulepreload" crossorigin href="/renderrangers/assets/vendor-0cb09735.js">
+    <link rel="modulepreload" crossorigin href="/renderrangers/assets/renderMarkup-6b6f4730.js">
+    <link rel="stylesheet" href="/renderrangers/assets/renderMarkup-6e3b60af.css">
   </head>
   <body>
     <section class="section header-section">
@@ -76,19 +77,7 @@
         <section class="support">
   <div class="wrapper">
     <h2 class="support-title">Support Ukraine</h2>
-    <ul class="js-support-list">
-      <!--     <li class="support-item">
-          <a
-            class="support-link"
-            target="_blank"
-            rel="noopener noreferrer"
-            arial-label=""
-            href=""
-          >
-            <img class="support-img" src="../img/support/aah.png" alt="" />
-          </a>
-        </li> -->
-    </ul>
+    <ul class="js-support-list"></ul>
   </div>
   <button class="js-support-btn" type="button">
     <svg class="support-svg-icon" width="28" height="28">
