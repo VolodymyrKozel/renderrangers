@@ -1,12 +1,11 @@
-import{r as a,a as b}from"./assets/renderMarkup-5f260c33.js";import{a as w,S as L,N as v}from"./assets/vendor-dcaf4cbb.js";const x="https://books-backend.p.goit.global/books/";async function g(e,t){try{return(await w.get(x+e,{params:t})).data}catch(o){console.error(o)}}console.log("category-card");const E=async e=>{a.categoryCardElem.innerHTML="",a.topSellerSection.innerHTML="";try{const t=await g("category",e),o=a.categoryCardElem.querySelector(".category-card-title");o&&o.remove();const r=t[0].list_name;document.querySelectorAll(".category-card-title").forEach(s=>{s.remove()}),a.categoryCardElem.insertAdjacentHTML("beforebegin",S(r)),b(C,a.categoryCardElem,t)}catch(t){console.error("Error fetching category books:",t)}};function S(e){return`
+import{r as a,a as b}from"./assets/renderMarkup-430e8e7d.js";import{a as w,S as L,N as v}from"./assets/vendor-dcaf4cbb.js";const x="https://books-backend.p.goit.global/books/";async function g(e,t){try{return(await w.get(x+e,{params:t})).data}catch(o){console.error(o)}}console.log("category-card");const E=async e=>{a.categoryCardElem.innerHTML="",a.topSellerSection.innerHTML="";try{const t=await g("category",e),o=a.categoryCardElem.querySelector(".category-card-title");o&&o.remove();const r=t[0].list_name;document.querySelectorAll(".category-card-title").forEach(s=>{s.remove()}),a.categoryCardElem.insertAdjacentHTML("beforebegin",S(r)),b(C,a.categoryCardElem,t)}catch(t){console.error("Error fetching category books:",t)}};function S(e){return`
       <h2 class="category-card-title">${e}</h2>
     `}function C({book_image:e,title:t,author:o,_id:r}){return`
       <li class="card-book-item" data-id="${r}">
         <img class="card-book-image"
         src="${e}"
         alt="${t}"
-        width="335"
-        height="485">
+        >
         <h3 class="card-book-title">${t}</h3>
         <p class="card-book-author">${o}</p>
       </li>
