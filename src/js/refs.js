@@ -8,6 +8,7 @@ export const refs = {
   categoryCardSection: document.querySelector('.js-category'),
   topSellerSection: document.querySelector('.seller-section'),
   shoppingListMain: document.querySelector('.js-shopping-main'),
+  shoppingEmpty: document.querySelector('.shopping-box-empty'),
   /* support */
   supportList: document.querySelector('.swiper-wrapper'),
   scrollBtn: document.querySelector('.js-support-btn'),

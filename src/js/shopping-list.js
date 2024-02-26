@@ -1,72 +1,86 @@
-import LS from './helpers/localStorageHelper';
-import renderMarkup from './helpers/renderMarkup';
+import { getDataBooks } from "./Api/uBooksApi";
+import LocalStorage from "./helpers/localStorageHelper";
+import renderMarkup from "./helpers/renderMarkup";
+import { refs } from "./refs";
 
-import { getDataBooks } from './Api/uBooksApi';
-import { refs } from './refs';
-LS.remove('cart1');
-//aсинхронна функція чекає на відповідь з сервера
-export const getCategoryBooks = async () => {
-  //run loading написати загрузку
-
-  // чекаємо на дані
-  const book = await getDataBooks('643282b1e85766588626a0b2');
-  // малюємо дані на сторінці
+async function getBookById(id) {
+  const data = await getDataBooks(id);
   const books = [];
-  books.push(book);
-  LS.set('cart', books);
-
-  /*   refs.categoryCardElem.insertAdjacentHTML(
-    'beforebegin',
-    booksCategoryTemplate(categoryBooks[0].list_name)
-  );
-  renderMarkup(booksTemplate, refs.categoryCardElem, categoryBooks); */
-};
-/* getCategoryBooks(); */
-/* LS.set(key, value);
-LS.get(key);
- cart*/
-
-if (LS.has('cart')) {
-  const localstorageItem = LS.get('cart');
-  console.log(localstorageItem[0]);
-  renderMarkup(templateList, refs.shoppingListMain, LS.get('cart'));
-} else {
-  renderMarkup(templateEmpty);
+  // LocalStorage.has('cart') ? books.push(LocalStorage.get('cart')) : LocalStorage.set('cart', books);
+  books.push(data);
+  LocalStorage.set('cart', books);
 }
-function templateEmpty(book) {
-  console.log(book);
-  return `<p class="shopping-list-container-text">
-            This page is empty, add some books <br />
-            and proceed to order.
-          </p>`;
+  
+// getBookById('643282b1e85766588626a0dc');
+getBookById('643282b1e85766588626a0ae');
+
+function templateList({
+  _id,
+  list_name,
+  author,
+  title,
+  book_image,
+  description,
+  buy_links,
+}) {
+  return `<li class="shopping-item">
+            <img
+              class="shopping-img"
+              src="${book_image}"
+              alt="${title}"
+            />
+            <div class="shopping-wrap">
+              <div class="heading-info">
+                <div class="title-container">
+                  <h2 class="title-book ellipsis-text">
+                    ${title}
+                  </h2>
+                  <p class="category-book ellipsis-text">${list_name}</p>
+                </div>
+                <button
+                  class="delete-shopping-item-btn"
+                  data-id="${_id}"
+                >
+                  <svg class="trash-btn-icon" height="16" width="16">
+                    <use href="./img/icons/icons.svg#icon-trash"></use>
+                  </svg>
+                </button>
+              </div>
+              <p class="descr-shopping ellipsis-text">${description}</p>
+              <div class="author-info-container">
+                <p class="author-info">${author}</p>
+                ${murkupLinks(buy_links)}
+              </div>
+            </div>
+          </li>`;
 }
 
-function templateList({ book_image, title, list_name }) {
-  console.log(book);
-  return `<ul class="shopping-list">
-  <li class="shopping-item">
-    <img class="shopping-img" src="${book_image}" alt="${title}" width="100" height="142" />
-    <svg class="header-logo-icon-bookshelf" width="12" height="12">
-      <use href="./img/icons/icons.svg#icon-bookshelf"></use>
-    </svg>
-    <h2 class="shopping-item-title">${title}</h2>
-    <p class="shopping-category-title">${list_name}</p>
-    <p class="shopping-desc"></p>
-    <p class="shopping-autor"></p>
-    <ul class="shopping-shop-list">
-      <li class="shopping-shop-item">
-        <a class="shopping-shop-link" href="">
-          <svg class="header-logo-icon-bookshelf" width="77" height="14">
-            <use href="./img/icons/icons.svg#icon-amazon"></use>
-          </svg>
-        </a>
-        <a class="shopping-shop-link" href="">
-          <svg class="header-logo-icon-bookshelf" width="77" height="14">
-            <use href="./img/icons/icons.svg#icon-amazon"></use>
-          </svg>
-        </a>
-      </li>
-    </ul>
-  </li>
-</ul>`;
+function murkupLinks(buy_links) {
+  const amazon = buy_links.find(elem => elem.name === 'Amazon').url;
+  const appleBook = buy_links.find(elem => elem.name === 'Apple Books').url;
+  return `<ul class="shop-link-list">
+              <li class=""shop-link-item>
+                <a class="shop-link-amazon" href="${amazon}" target="_blank">
+                   <img src="../img/amazon.png" alt="Amazon" class="amazon-image">
+                </a>
+              </li>
+              <li class=""shop-link-item>
+                <a class="shop-link-amazon" href="${appleBook}" target="_blank">
+                    <img src="../img/apple-1x.png" alt="Apple-books" class="apple-books-image">
+                </a>
+              </li>
+          </ul>`
 }
+function renderItem() {
+
+  let data = LocalStorage.get('cart');
+
+  const isStorageEmpty = !data || !data.length;
+  if (isStorageEmpty) return;
+
+  refs.shoppingEmpty.classList.add('hidden');
+  const books = renderMarkup(templateList, data);
+  refs.shoppingListMain.innerHTML = books;
+}
+ 
+renderItem();

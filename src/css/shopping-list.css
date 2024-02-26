@@ -1,0 +1,124 @@
+.hidden {
+    display: none;
+}
+
+.ellipsis-text {
+    text-overflow: ellipsis;
+    overflow: hidden;
+    width: 144px;
+    white-space: nowrap;
+}
+
+.shopping-list-container {
+}
+
+.shopping-list-text {
+    font-weight: 700;
+    font-size: 32px;
+    line-height: 1.1875;
+    letter-spacing: -0.04em;
+    margin-bottom: 120px;
+}
+
+.shopping-list-color {
+    color: #4f2ee8;
+}
+
+.shopping-list-container-text {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 1.28571;
+    letter-spacing: -0.02em;
+    text-align: center;
+    color: rgba(0, 0, 0, 0.6);
+}
+
+.shopping-box-empty img {
+margin: 0 auto;
+}
+
+.shopping-item {
+    width: 335px;
+    height: 170px;
+    border: 2px solid rgba(79, 46, 232, 0.4);
+    border-radius: 16px;
+    padding: 14px;
+    display: flex;
+}
+
+.shopping-img {
+    width: 100px;
+    height: 142px;
+}
+
+.title-book {
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 1.125;
+    letter-spacing: -0.04em;
+    text-transform: uppercase;
+    margin-bottom: 4px;
+}
+
+.category-book {
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 1.16667;
+    letter-spacing: 0.03em;
+    color: #b4afaf;
+}
+
+.title-container .category-book {
+    margin-bottom: 8px;
+}
+
+.shopping-wrap {
+    margin-left: 14px;
+}
+
+.descr-shopping {
+    margin-bottom: 16px;
+}
+
+.author-info-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.shop-link-list {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+}
+
+.apple-books-image {
+    width: 16px;
+    height: 16px;
+    mix-blend-mode: luminosity;
+}
+
+.amazon-image {
+    width: 32px;
+    height: 11px;
+    mix-blend-mode: luminosity;
+}
+
+@media screen and (min-width: 768px) {
+.shopping-list-text {
+    font-size: 48px;
+    line-height: 1.08333;
+    }
+
+.shopping-list-container-text {
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 1.33333;
+    letter-spacing: -0.02em;
+    text-align: center;
+    color: rgba(0, 0, 0, 0.6); 
+    }
+}
+
+
+
