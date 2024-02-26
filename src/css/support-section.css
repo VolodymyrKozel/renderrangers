@@ -1,4 +1,4 @@
-.support {
+/* .support {
   color: #ffffff;
   padding: 24px 40px;
   overflow-y: auto;
@@ -15,7 +15,7 @@
   flex-direction: column;
 }
 /* Header */
-.support-header {
+/* .support-header {
   display: flex;
   width: 100%;
   align-items: center;
@@ -47,13 +47,13 @@
   fill: #4f2ee8;
 }
 /* Swiper */
-.swiper {
+/* .swiper {
   width: 100%;
   height: 292px;
 }
 .swiper-slide {
-}
-.support-link {
+} */
+/* .support-link {
   height: 50px;
   background-color: transparent;
   display: flex;
@@ -90,11 +90,11 @@
   width: 32px;
   height: 32px;
   box-shadow: 0 4px 4px #00000040;
-}
+} */
 
-.swiper-button-hidden {
+/* .swiper-button-hidden {
   display: none;
 }
 .icon-revert {
   transform: rotate(180deg);
-}
+}  */

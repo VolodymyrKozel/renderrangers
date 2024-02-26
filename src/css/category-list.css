@@ -1,9 +1,10 @@
 .category {
   width: 335px;
+  
 }
 .js-category-list {
   overflow-y: scroll;
-  height: 472px;
+  height: 228px;
   text-align: left;
 }
 .category-item:not(:last-child) {
@@ -11,12 +12,12 @@
 }
 .category-list {
   font-size: 16px;
-  line-height: calc(18 / 16);
+  line-height: calc(35/16);
   font-weight: 400;
   letter-spacing: -0.02em;
   color: rgba(17, 17, 17, 0.6);
   margin-bottom: 24px;
-  height: 18px;
+  height: 24px;
   cursor: pointer;
   user-select: none;
 }
@@ -68,14 +69,24 @@ body.dark-theme .category-button.active {
 @media screen and (min-width: 768px) {
   .category {
     width: 337px;
-    height: 495px;
     padding-top: 10px;
   }
+  
+  .js-category-list {
+    height: 472px;
+    }
+    .category-list {
+    font-size: 18px;
+    line-height: calc(36 / 18);
+    margin-bottom: 32px;
+    /* height: 32px; */
+     }
 }
 
 @media screen and (min-width: 1440px) {
   .category {
     width: 356px;
+    
   }
 }
 
