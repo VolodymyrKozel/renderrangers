@@ -7,8 +7,8 @@
     <title>Shopping List</title>
     
     <script type="module" crossorigin src="/renderrangers/commonHelpers2.js"></script>
-    <link rel="modulepreload" crossorigin href="/renderrangers/assets/renderMarkup-9fdcb560.js">
-    <link rel="stylesheet" href="/renderrangers/assets/renderMarkup-8b265640.css">
+    <link rel="modulepreload" crossorigin href="/renderrangers/assets/renderMarkup-c61de964.js">
+    <link rel="stylesheet" href="/renderrangers/assets/renderMarkup-967579ae.css">
   </head>
   <body>
     <header class="section header-section">
@@ -39,18 +39,20 @@
         <div class="user-choice">
             <div class="checkbox-theme">
                 <input class="checkbox-input" type="checkbox" value="None" id="checkbox" name="check" />
-                <label class="checkbox-lable" for="checkbox"></label>
+                <label class="checkbox-lable" for="checkbox">
+                    <svg class="owl-icon" width="18" height="18">
+                        <use href="../img/icons/icons.svg#icon-owl"></use>
+                    </svg>
+                    <svg class="owl-light-icon" width="18" height="18">
+                        <use href="../img/icons/icons.svg#icon-owl-light"></use>
+                    </svg>
+                </label>
             </div>
             <button class="burger-menu-btn" type="button">
                 <svg class="burger-menu-icon" width="28" height="28">
                     <use href="/renderrangers/assets/icons-401d4b39.svg#icon-burger"></use>
                 </svg>
             </button>
-            <!-- <button class="close-menu-btn is-hidden" type="button">
-                <svg class="close-menu-icon" width="18" height="18">
-                    <use href="./img/icons/icons.svg#icon-x-close"></use>
-                </svg>
-            </button> -->
             <div class="user-sign-up">
                 <button class="user-btn" id="login-btn">
                     <svg class="user-btn-icon is-hidden" width="19" height="19">
@@ -63,9 +65,7 @@
                 </button>
             </div>
         </div>
-        <div class="modal" id="login-modal">
-            <!-- Форма авторизації буде додана за допомогою JavaScript -->
-        </div>
+    </div>
 </header>
     <div class="container container-flex-xl">
       <aside class="aside">
