@@ -7,11 +7,11 @@
     <title>Shopping List</title>
     
     <script type="module" crossorigin src="/renderrangers/commonHelpers2.js"></script>
-    <link rel="modulepreload" crossorigin href="/renderrangers/assets/renderMarkup-3fdc6bca.js">
-    <link rel="stylesheet" href="/renderrangers/assets/renderMarkup-4cdc1331.css">
+    <link rel="modulepreload" crossorigin href="/renderrangers/assets/renderMarkup-8be60694.js">
+    <link rel="stylesheet" href="/renderrangers/assets/renderMarkup-d8f2e971.css">
   </head>
   <body>
-    <header class="section header-section">
+    <header class="header">
     <div class="container header-container">
         <div class="header-logo">
             <a href="index.html" class="header-logo-link">
@@ -36,10 +36,9 @@
                 </a>
             </li>
         </ul>
-
         <div class="user-choice">
             <div class="checkbox-theme">
-                <input class="checkbox-input" type="checkbox" value="None" id="checkbox" name="check" />
+                <input class="checkbox-input" type="checkbox" id="checkbox" name="check" />
                 <label class="checkbox-lable" for="checkbox">
                     <svg class="owl-icon" width="18" height="18">
                         <use href="/renderrangers/assets/icons-b0832888.svg#icon-owl"></use>
@@ -49,17 +48,10 @@
                     </svg>
                 </label>
             </div>
-            <button class="burger-menu-btn is-hidden" type="button" data-target="mobile-menu">
-                <svg class="burger-menu-icon" width="28" height="28">
-                    <use href="/renderrangers/assets/icons-b0832888.svg#icon-burger"></use>
-                </svg>
-            </button>
-            <div class="mob-menu-close mobile-menu-container">
-                <button type="button" class="mob-menu-close-btn">
-                    <svg class="mob-menu-close-icon" width="18" height="18">
-                        <use href="/renderrangers/assets/icons-b0832888.svg#icon-x-close"></use>
-                    </svg>
-                </button>
+
+            <div class="header-burger">
+                <span class="burger-menu"></span>
+                <span class="burger-menu"></span>
             </div>
             <div class="user-sign-up">
                 <button class="user-btn" id="login-btn">
