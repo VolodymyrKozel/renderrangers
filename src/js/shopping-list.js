@@ -3,16 +3,16 @@ import LocalStorage from "./helpers/localStorageHelper";
 import renderMarkup from "./helpers/renderMarkup";
 import { refs } from "./refs";
 
-async function getBookById(id) {
-  const data = await getDataBooks(id);
-  const books = [];
-  // LocalStorage.has('cart') ? books.push(LocalStorage.get('cart')) : LocalStorage.set('cart', books);
-  books.push(data);
-  LocalStorage.set('cart', books);
-}
+// async function getBookById(id) {
+//   const data = await getDataBooks(id);
+//   const books = [];
+//   LocalStorage.has('cart') ? books.push(LocalStorage.get('cart')) : LocalStorage.set('cart', books);
+//   books.push(data);
+//   LocalStorage.set('cart', books);
+// }
   
 // getBookById('643282b1e85766588626a0dc');
-getBookById('643282b1e85766588626a0ae');
+// getBookById('643282b1e85766588626a0ae');
 
 function templateList({
   _id,
@@ -32,10 +32,10 @@ function templateList({
             <div class="shopping-wrap">
               <div class="heading-info">
                 <div class="title-container">
-                  <h2 class="title-book ellipsis-text">
+                  <h2 class="title-book">
                     ${title}
                   </h2>
-                  <p class="category-book ellipsis-text">${list_name}</p>
+                  <p class="category-book">${list_name}</p>
                 </div>
                 <button
                   class="delete-shopping-item-btn"
@@ -46,7 +46,7 @@ function templateList({
                   </svg>
                 </button>
               </div>
-              <p class="descr-shopping ellipsis-text">${description}</p>
+              <p class="descr-shopping">${description}</p>
               <div class="author-info-container">
                 <p class="author-info">${author}</p>
                 ${murkupLinks(buy_links)}
@@ -61,23 +61,25 @@ function murkupLinks(buy_links) {
   return `<ul class="shop-link-list">
               <li class=""shop-link-item>
                 <a class="shop-link-amazon" href="${amazon}" target="_blank">
-                   <img src="../img/amazon.png" alt="Amazon" class="amazon-image">
+                   <img src="./img/amazon.png" alt="Amazon" class="amazon-image">
                 </a>
               </li>
               <li class=""shop-link-item>
                 <a class="shop-link-amazon" href="${appleBook}" target="_blank">
-                    <img src="../img/apple-1x.png" alt="Apple-books" class="apple-books-image">
+                    <img src="./img/apple-1x.png" alt="Apple-books" class="apple-books-image">
                 </a>
               </li>
           </ul>`
 }
-function renderItem() {
 
+function renderItem() {
+  refs.shoppingListMain.innerHTML = '';
   let data = LocalStorage.get('cart');
 
   const isStorageEmpty = !data || !data.length;
   if (isStorageEmpty) return;
 
+  refs.shoppingText.style.marginBottom = '40px';
   refs.shoppingEmpty.classList.add('hidden');
   const books = renderMarkup(templateList, data);
   refs.shoppingListMain.innerHTML = books;
