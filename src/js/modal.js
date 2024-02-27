@@ -5,13 +5,10 @@ import modalTemplate from './template/modalTemplate';
 const body = document.querySelector('body');
 const modalBackdrop = document.querySelector('.backdrop');
 modalBackdrop.addEventListener('click', handleClickModal);
-/* const closeModalButton = document.querySelector('.modal-close-button'); */
-/* const listButton = document.querySelector('.modal-list-button'); */
 
 // Open modalmenu
 export async function getBookById(id) {
   const data = await getDataBooks(id);
-  console.log(data);
   createModal(data);
   document.addEventListener('keydown', escapeCloseModal);
   /*   listButton.addEventListener('click', function () {
@@ -25,8 +22,6 @@ function createModal(book) {
   modalBackdrop.innerHTML = '';
   modalBackdrop.insertAdjacentHTML('afterbegin', modalTemplate(book));
   checkLS(book._id, 'cart');
-  /*  toggleShoppingList(book._id, 'cart'); */
-  console.log(book._id);
 }
 function checkLS(id, storeName) {
   let existingEntries = JSON.parse(localStorage.getItem(storeName));
@@ -51,11 +46,15 @@ function addEntry(book, storeName) {
   existingEntries.push(book);
   localStorage.setItem(storeName, JSON.stringify(existingEntries));
 }
-function deleteEntry(id, storeName) {}
+function deleteEntry(id, storeName) {
+  let existingEntries = JSON.parse(localStorage.getItem(storeName));
+  const newEntries = existingEntries.filter(item => item.id !== id);
+  localStorage.setItem(storeName, JSON.stringify(newEntries));
+}
 function handleClickModal(e) {
-  console.log(e.target);
   if (e.target.id === 'modal-list-button-id') {
-    if (e.dataset.role === 'add') {
+    if (e.target.dataset.role === 'add') {
+      console.log(data);
       addEntry(e.target.dataset.id, 'cart');
     } else {
       deleteEntry(e.target.dataset.id, 'cart');
@@ -66,13 +65,10 @@ function handleClickModal(e) {
     closeModal();
   }
   if (e.target.id === 'mBackdrop') {
-    console.log('x');
-    modalBackdrop.style.display = 'none';
-    body.style.overflow = 'auto';
     closeModal();
   }
   if (e.target.nodeName !== 'BUTTON') {
-    return; // користувач клікнув між кнопками
+    return;
   }
 }
 
