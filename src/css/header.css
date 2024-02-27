@@ -14,7 +14,7 @@ body.dark-theme .header-nav .current {
 }
 
 body.dark-theme .header-nav-link {
-  color: (--white);
+  color: var(--white);
 }
 
 body.dark-theme .current:hover,
@@ -140,6 +140,7 @@ body.dark-theme .burger-menu-icon {
 }
 
 .burger-menu-btn {
+  display: block;
   background-color: transparent;
   border: none;
   padding: 0px;
@@ -156,13 +157,27 @@ body.dark-theme .burger-menu-icon {
   transform: rotateY(360deg);
 }
 
-.close-menu-btn {
+.mob-menu-close-btn {
+  background-color: transparent;
+  border: none;
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+    transform: translateY(0);
+}
+
+.mob-menu-close.open-menu {
+    stroke-width: 2.50px;
+    stroke: #111;  
+}
+
+/* .close-menu-btn {
   display: none;
 }
 
 .close-menu-icon {
   stroke: #111;
-}
+} */
 
 .user-sign-up {
   display: none;
