@@ -1,193 +1,221 @@
 .backdrop {
-    display: none;
-    position: fixed;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(17, 17, 17, 0.4);
+  display: none;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 100;
+  background-color: rgba(17, 17, 17, 0.4);
 }
 
 .modalmenu {
-    width: 335px;
-    height: 762px;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background-color: rgb(246, 246, 246);
-    border: 2px solid rgb(17, 17, 17);
-    border-radius: 18px;
-    padding: 40px 24px;
-    animation: fadeInOut 0.5s forwards;
+  width: 335px;
+  height: 762px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: var(--white);
+  border: 2px solid var(--black);
+  border-radius: 18px;
+  padding: 40px 24px;
+  animation: fadeInOut 0.5s forwards;
+}
+
+body.dark-theme .modalmenu {
+  background-color: var(--black-1);
+  border: 2px solid var(--white);
 }
 
 @keyframes fadeInOut {
-    0% {
-        opacity: 0;
-        transform: translate(-50%, -50%) scale(0);
-    }
+  0% {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0);
+  }
 
-    100% {
-        opacity: 1;
-        transform: translate(-50%, -50%) scale(1);
-    }
+  100% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
 }
 
 .modal-close-button {
-    position: absolute;
-    top: 12px;
-    right: 12px;
-    border: none;
-    background-color: transparent;
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  border: none;
+  width: 24px;
+  height: 24px;
+  background-color: transparent;
 }
 
 .close-icon {
-    fill: transparent;
-    stroke: rgb(0, 0, 0);
-    transition: stroke 250ms ease;
+  fill: transparent;
+  stroke: var(--black);
+  transition: stroke 250ms ease;
+}
+
+body.dark-theme .close-icon {
+  stroke: var(--white);
 }
 
 .close-icon:hover,
 .close-icon:focus {
-    stroke: rgb(79, 46, 232);
+  stroke: var(--violet);
 }
 
 .modal-image {
-    width: 287px;
-    height: 408px;
-    border-radius: 8px;
+  width: 287px;
+  height: 408px;
+  border-radius: 8px;
 }
 
 .modal-title {
-    width: 260px;
-    font-weight: 700;
-    font-size: 16px;
-    line-height: 1.12;
-    letter-spacing: -0.04em;
-    margin-bottom: 4px;
+  width: 260px;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 1.12;
+  letter-spacing: -0.04em;
+  margin-bottom: 4px;
 }
 
 .modal-author {
-    font-style: italic;
-    font-weight: 400;
-    font-size: 12px;
-    line-height: 1.17;
-    letter-spacing: -0.04em;
-    color: rgb(180, 175, 175);
-    margin-bottom: 18px;
+  font-style: italic;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 1.17;
+  letter-spacing: -0.04em;
+  color: var(--heading);
+  margin-bottom: 18px;
 }
 
 .description {
-    font-weight: 400;
-    font-size: 14px;
-    line-height: 1.29;
-    letter-spacing: -0.04em;
-    margin-bottom: 18px;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.29;
+  letter-spacing: -0.04em;
+  margin-bottom: 18px;
 }
 
 .buy-links-list {
-    display: flex;
-    gap: 20px;
-    align-items: center;
-    cursor: pointer;
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  cursor: pointer;
 }
 
 .platform-image {
-    filter: grayscale(100%);
-    transition: filter 250ms ease;
+  filter: grayscale(100%);
+  transition: filter 250ms ease;
+}
+
+body.dark-theme .buy-links-item:first-child {
+  filter: invert(100%) grayscale(100%);
 }
 
 .platform-image:hover {
-    filter: drop-shadow(0px 3px 3px rgba(0, 0, 0, 0.35));
+  filter: drop-shadow(0px 3px 3px rgba(0, 0, 0, 0.35));
 }
 
 .modal-list-button {
-    display: flex;
-    width: 279px;
-    border: 2px solid rgb(79, 46, 232);
-    border-radius: 40px;
-    background-color: transparent;
-    font-weight: 700;
-    font-size: 14px;
-    line-height: 1.29;
-    letter-spacing: -0.01em;
-    text-transform: uppercase;
-    justify-content: center;
-    padding: 14px 0;
-    margin: 0 auto;
-    transition: color 250ms ease, background-color 250ms ease;
+  width: 279px;
+  border: 2px solid var(--violet);
+  border-radius: 40px;
+  background-color: transparent;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 1.29;
+  letter-spacing: -0.01em;
+  text-transform: uppercase;
+  padding: 28px 14px;
+  margin: 0 auto;
+  transition: color 250ms ease, background-color 250ms ease;
+}
+
+body.dark-theme .modal-list-button {
+  color: var(--white);
 }
 
 .modal-list-button:hover,
 .modal-list-button:focus {
-    color: rgb(255, 255, 255);
-    background-color: rgb(79, 46, 232);
+  color: var(--white);
+  background-color: var(--violet);
 }
 
 .open-modal {
-    width: 100px;
-    height: 100px;
-    margin: 50px auto;
-    text-align: center;
-    border-radius: 50%;
-    background-color: beige;
-    color: black;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
+  width: 100px;
+  height: 100px;
+  margin: 50px auto;
+  text-align: center;
+  border-radius: 50%;
+  background-color: beige;
+  color: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
 }
 
 /* adaptive */
 
 @media screen and (max-width: 767px) {
-    .modal-image {
-        margin-bottom: 14px;
-    }
+  .modal-image {
+    margin-bottom: 14px;
+  }
 
-    .modal-wrap {
-        margin-bottom: 44px;
-    }
+  .modal-wrap {
+    margin-bottom: 44px;
+  }
 }
 
 @media screen and (min-width: 768px) {
-    .modalmenu {
-        width: 579px;
-        height: 465px;
-        padding: 40px;
-    }
+  .modalmenu {
+    width: 579px;
+    height: 465px;
+    padding: 40px;
+  }
 
-    .modal-close-button {
-        top: 34px;
-        right: 26px;
-    }
+  .modal-close-button {
+    top: 34px;
+    right: 26px;
+  }
 
-    .modal-container {
-        display: flex;
-        gap: 24px;
-        margin-bottom: 40px;
-    }
+  .modal-container {
+    display: flex;
+    gap: 24px;
+    margin-bottom: 40px;
+  }
 
-    .modal-image {
-        width: 192px;
-        height: 281px;
-    }
+  .modal-image {
+    width: 192px;
+    height: 281px;
+  }
 
-    .modal-title {
-        max-width: 230px;
-        font-size: 24px;
-        line-height: 1.17;
-    }
+  .modal-title {
+    max-width: 230px;
+    font-size: 24px;
+    line-height: 1.17;
+  }
 
-    .modal-author {
-        font-size: 14px;
-        line-height: 1.29;
-    }
+  .modal-author {
+    font-size: 14px;
+    line-height: 1.29;
+  }
 
-    .modal-list-button {
-        width: 499px;
-        font-size: 18px;
-        line-height: 1.33;
-        padding: 20px 0;
-    }
+  .modal-list-button {
+    width: 499px;
+    font-size: 18px;
+    line-height: 1.33;
+    padding: 20px 0;
+  }
+
+  .modal-close-button {
+    width: 28px;
+    height: 28px;
+  }
+
+  .close-icon {
+    width: 14px;
+    height: 14px;
+  }
 }
