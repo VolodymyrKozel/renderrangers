@@ -20,33 +20,38 @@ export async function getBookById(id) {
 }
 function createModal(book) {
   localStorage.setItem('currentBook', JSON.stringify(book));
-  currentBook.push(book)
+  currentBook.push(book);
   modalBackdrop.style.display = 'flex';
   body.style.overflow = 'hidden';
   modalBackdrop.innerHTML = '';
   modalBackdrop.insertAdjacentHTML('afterbegin', modalTemplate(isAdded, book));
   //chack if exist then delete
-  console.log(checkLS('cart'));
-
+  console.log(checkLS(book._id, 'cart'));
 }
-function checkLS(storeName) {
+function checkLS(id, storeName) {
   let existingEntries = JSON.parse(localStorage.getItem(storeName));
-  if (existingEntries == null) return false;
-  if (currentBook.find(item => item.id === JSON.parse(localStorage.getItem('cart')).id) === true) {return true;}else {return false}
-
+  if (existingEntries === null) {
+    existingEntries = [];
+    localStorage.setItem(storeName, JSON.stringify(existingEntries));
+  }
+  if (existingEntries.find(item => item._id === id)) {
+    document.querySelector('.modal-list-button').textContent =
+      'remove from the shopping list';
+    isAdded = false;
+    console.log('same adres');
+  }
 }
 function addEntry(storeName) {
   // Parse any JSON previously stored in allEntries
   let existingEntries = JSON.parse(localStorage.getItem(storeName));
-  if (existingEntries == null) {
-    existingEntries = [];
-  }
-  existingEntries.push(currentBook);
-  localStorage.setItem(storeName, JSON.stringify(existingEntries));
+  localStorage.setItem(
+    storeName,
+    JSON.stringify(currentBook, ...existingEntries)
+  );
 }
-function deleteEntry(id , storeName) {
+function deleteEntry(id, storeName) {
   let existingEntries = JSON.parse(localStorage.getItem(storeName));
-  const newEntries = existingEntries.filter(item => item.id !== id);
+  const newEntries = existingEntries.filter(item => item._id !== id);
   localStorage.setItem(storeName, JSON.stringify(newEntries));
 }
 function handleClickModal(e) {
@@ -54,15 +59,15 @@ function handleClickModal(e) {
     if (isAdded) {
       addEntry('cart');
       //set to store
-      e.target.textContent = "add to shopping list"
-      isAdded = false
-    } if (isAdded === false) {
-      deleteEntry(e.target.dataset.id, 'cart')
+      e.target.textContent = 'add to shopping list';
+      isAdded = false;
+    }
+    if (!isAdded) {
+      deleteEntry(e.target.dataset.id, 'cart');
       //del from store
       isAdded = true;
-        e.target.textContent = "remove from the shopping list"
+      e.target.textContent = 'remove from the shopping list';
     }
-
   }
 
   if (e.target.tagName === 'svg') {
