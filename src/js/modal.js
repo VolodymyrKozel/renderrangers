@@ -5,6 +5,8 @@ import modalTemplate from './template/modalTemplate';
 const body = document.querySelector('body');
 const modalBackdrop = document.querySelector('.backdrop');
 modalBackdrop.addEventListener('click', handleClickModal);
+const currentBook = [];
+let isAdded = true;
 
 // Open modalmenu
 export async function getBookById(id) {
@@ -17,48 +19,50 @@ export async function getBookById(id) {
   }); */
 }
 function createModal(book) {
+  localStorage.setItem('currentBook', JSON.stringify(book));
+  currentBook.push(book)
   modalBackdrop.style.display = 'flex';
   body.style.overflow = 'hidden';
   modalBackdrop.innerHTML = '';
-  modalBackdrop.insertAdjacentHTML('afterbegin', modalTemplate(book));
-  checkLS(book._id, 'cart');
+  modalBackdrop.insertAdjacentHTML('afterbegin', modalTemplate(isAdded, book));
+  //chack if exist then delete
+  console.log(checkLS('cart'));
+
 }
-function checkLS(id, storeName) {
+function checkLS(storeName) {
   let existingEntries = JSON.parse(localStorage.getItem(storeName));
-  if (existingEntries == null) return;
-  if (existingEntries.find(item => item.id == id)) {
-    console.log('show delete button');
-  }
+  if (existingEntries == null) return false;
+  if (currentBook.find(item => item.id === JSON.parse(localStorage.getItem('cart')).id) === true) {return true;}else {return false}
+
 }
-function addEntry(book, storeName) {
+function addEntry(storeName) {
   // Parse any JSON previously stored in allEntries
   let existingEntries = JSON.parse(localStorage.getItem(storeName));
   if (existingEntries == null) {
     existingEntries = [];
   }
-  /*   console.log('filter');
-  console.log(existingEntries.filter(item => item.id !== id));
-  console.log('find');
-  console.log(existingEntries.find(item => item.id == id)); */
-  /*   var entry = {
-    id: id,
-  }; */
-  existingEntries.push(book);
+  existingEntries.push(currentBook);
   localStorage.setItem(storeName, JSON.stringify(existingEntries));
 }
-function deleteEntry(id, storeName) {
+function deleteEntry(id , storeName) {
   let existingEntries = JSON.parse(localStorage.getItem(storeName));
   const newEntries = existingEntries.filter(item => item.id !== id);
   localStorage.setItem(storeName, JSON.stringify(newEntries));
 }
 function handleClickModal(e) {
   if (e.target.id === 'modal-list-button-id') {
-    if (e.target.dataset.role === 'add') {
-      console.log(data);
-      addEntry(e.target.dataset.id, 'cart');
-    } else {
-      deleteEntry(e.target.dataset.id, 'cart');
+    if (isAdded) {
+      addEntry('cart');
+      //set to store
+      e.target.textContent = "add to shopping list"
+      isAdded = false
+    } if (isAdded === false) {
+      deleteEntry(e.target.dataset.id, 'cart')
+      //del from store
+      isAdded = true;
+        e.target.textContent = "remove from the shopping list"
     }
+
   }
 
   if (e.target.tagName === 'svg') {

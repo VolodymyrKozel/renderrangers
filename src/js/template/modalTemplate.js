@@ -1,5 +1,5 @@
 import renderMarkup from '../helpers/renderMarkup';
-export default function modalTemplate({
+export default function modalTemplate(isAdded,{
   _id,
   book_image,
   title,
@@ -26,7 +26,7 @@ export default function modalTemplate({
     </div>
   </div>
    <button class="modal-list-button" type="button" id="modal-list-button-id" data-role="add" data-id="${_id}">
-      Add this book to shopping list
+      add to shopping list'
     </button>
     </section>
 `;
