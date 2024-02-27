@@ -25,7 +25,7 @@ export default function modalTemplate({
         </ul>       
     </div>
   </div>
-   <button class="modal-list-button"type="button" id="modal-list-button-id" data-id="${_id}">
+   <button class="modal-list-button" type="button" id="modal-list-button-id" data-id="${_id}">
       Add this book to shopping list
     </button>
     </section>

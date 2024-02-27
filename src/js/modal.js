@@ -25,6 +25,7 @@ function createModal(book) {
   modalBackdrop.innerHTML = '';
   modalBackdrop.insertAdjacentHTML('afterbegin', modalTemplate(book));
   checkLS(book._id, 'cart');
+  toggleShoppingList(book._id, 'cart');
   console.log(book._id);
 }
 function checkLS(id, storeName) {
@@ -50,19 +51,19 @@ function addEntry(id, storeName) {
   existingEntries.push(entry);
   localStorage.setItem(storeName, JSON.stringify(existingEntries));
 }
+function deleteEntry(id, storeName) {}
 function handleClickModal(e) {
   console.log(e.target);
   if (e.target.id === 'modal-list-button-id') {
-    addEntry(e.target.dataset.id, 'cart');
+    if (e.dataset.role === 'add') {
+      addEntry(e.target.dataset.id, 'cart');
+    } else {
+      deleteEntry(e.target.dataset.id, 'cart');
+    }
   }
-  //use localstorage for saving active item
-  // виводимо лоадер
 
   if (e.target.tagName === 'svg') {
     closeModal();
-    console.log('x');
-    //use localstorage for saving active item
-    // виводимо лоадер
   }
   if (e.target.id === 'mBackdrop') {
     console.log('x');
@@ -76,9 +77,10 @@ function handleClickModal(e) {
 }
 
 //Shopping list
-function toggleShoppingList(id) {
+function toggleShoppingList(id, storeName) {
+  const listButton = document.querySelector('.modal-list-button');
   const buttonText = listButton.textContent.trim();
-  const storedData = localStorage.getItem('shoppingList');
+  const storedData = localStorage.getItem(storeName);
   const shoppingList = JSON.parse(storedData) || {};
 
   if (buttonText === 'Add this book to shopping list') {
@@ -90,17 +92,9 @@ function toggleShoppingList(id) {
     }
     listButton.textContent = 'Add this book to shopping list';
   }
-  localStorage.setItem('shoppingList', JSON.stringify(shoppingList));
+  localStorage.setItem(storeName, JSON.stringify(shoppingList));
 }
 
-/* closeModalButton.addEventListener('click', function () {
-  closeModal();
-}); */
-/* modalBackdrop.addEventListener('click', function (event) {
-  if (event.target === modalBackdrop) {
-    closeModal();
-  }
-}); */
 function escapeCloseModal(event) {
   if (event.key === 'Escape') {
     closeModal();
