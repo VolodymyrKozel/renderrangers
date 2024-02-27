@@ -7,8 +7,8 @@
     <title>Shopping List</title>
     
     <script type="module" crossorigin src="/renderrangers/commonHelpers2.js"></script>
-    <link rel="modulepreload" crossorigin href="/renderrangers/assets/renderMarkup-485a04b6.js">
-    <link rel="stylesheet" href="/renderrangers/assets/renderMarkup-e6b60f35.css">
+    <link rel="modulepreload" crossorigin href="/renderrangers/assets/renderMarkup-f50bf5a7.js">
+    <link rel="stylesheet" href="/renderrangers/assets/renderMarkup-d1e101c9.css">
   </head>
   <body>
     <header class="section header-section">
@@ -49,11 +49,18 @@
                     </svg>
                 </label>
             </div>
-            <button class="burger-menu-btn" type="button">
+            <button class="burger-menu-btn is-hidden" type="button" data-target="mobile-menu">
                 <svg class="burger-menu-icon" width="28" height="28">
                     <use href="/renderrangers/assets/icons-b0832888.svg#icon-burger"></use>
                 </svg>
             </button>
+            <div class="mob-menu-close mobile-menu-container">
+                <button type="button" class="mob-menu-close-btn">
+                    <svg class="mob-menu-close-icon" width="18" height="18">
+                        <use href="/renderrangers/assets/icons-b0832888.svg#icon-x-close"></use>
+                    </svg>
+                </button>
+            </div>
             <div class="user-sign-up">
                 <button class="user-btn" id="login-btn">
                     <svg class="user-btn-icon is-hidden" width="19" height="19">
