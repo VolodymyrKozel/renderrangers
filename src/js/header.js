@@ -42,10 +42,9 @@ function setActive() {
   }
 }
 
-  const burgerMenuBtn = document.querySelector('.header-burger');
-  const mobileMenuContainer = document.querySelector('.mobile-menu-container');
+const burgerMenuBtn = document.querySelector('.header-burger');
+const mobilMenu = document.querySelector('.mobile-menu-container');
 
-  burgerMenuBtn.addEventListener('click', () => {
-    mobileMenuContainer, burgerMenuBtn.classList.toggle('open-menu');
-  });
-
+burgerMenuBtn.addEventListener('click', function () {
+  mobilMenu.classList.toggle('open-menu');
+});
