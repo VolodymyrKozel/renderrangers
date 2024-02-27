@@ -3,7 +3,7 @@ import { Navigation } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/navigation';
 
-import { supportList } from './db/supportList';
+import { supportList } from '../../db/supportList';
 import { refs } from './refs';
 
 renderSupportList(supportList);
