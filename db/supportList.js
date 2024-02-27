@@ -1,21 +1,3 @@
-import stc from '../img/support/stc.png';
-import stc2x from '../img/support/stc@2x.png';
-import hope from '../img/support/hope.png';
-import hope2x from '../img/support/hope@2x.png';
-import u24 from '../img/support/u24.png';
-import u242x from '../img/support/u24@2x.png';
-import imc from '../img/support/imc.png';
-import imc2x from '../img/support/imc@2x.png';
-import msf from '../img/support/msf.png';
-import msf2x from '../img/support/msf@2x.png';
-import razom from '../img/support/razom.png';
-import razom2x from '../img/support/razom@2x.png';
-import aah from '../img/support/aah.png';
-import aah2x from '../img/support/aah@2x.png';
-import wv from '../img/support/wv.png';
-import wv2x from '../img/support/wv@2x.png';
-import prytula from '../img/support/prytula.png';
-import prytula2x from '../img/support/prytula@2x.png';
 
 export const supportList = [
   {
