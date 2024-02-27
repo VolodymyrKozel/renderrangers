@@ -1,8 +1,10 @@
 import apple from '../../img/amazon-1x.png';
 import amazon from '../../img/apple-1x.png';
+import apple2x from '../../img/amazon-2x.png';
+import amazon2x from '../../img/apple-2x.png';
 
 import renderMarkup from '../helpers/renderMarkup';
-export default function modalTemplate(isAdded,{
+export default function modalTemplate({
   _id,
   book_image,
   title,
@@ -39,11 +41,11 @@ function buyLinksTemplate({ name, url }) {
   return `
     <li class="buy-links-item">
     <a target="_blank" rel="noopener noreferrer" aria-label="${name}" href=${url}>
-      <img src="./img/${name
+      <img src="${name
         .split(' ')[0]
-        .toLowerCase()}-1x.png"  srcset="./img/${name
+        .toLowerCase() === 'amazon' ? amazon : apple}"  srcset="${name
     .split(' ')[0]
-    .toLowerCase()}-2x.png 2x" alt="${name}" class="platform-image">
+    .toLowerCase() === 'amazon' ? amazon2x : apple2x} 2x" alt="${name}" class="platform-image">
 </a>
 </li>
 `;
