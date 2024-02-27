@@ -87,7 +87,7 @@
 
 .sellers-button {
   border: 2px solid var(--violet);
-  background-color: var(--white);
+  background-color: transparent;
   border-radius: 40px;
   padding: 14px 28px;
   display: block;
@@ -110,7 +110,7 @@
 }
 
 body.dark-theme .sellers-button {
-  background-color: var(--black);
+  
   color: var(--white);
 }
 
