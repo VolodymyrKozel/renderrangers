@@ -25,30 +25,30 @@ function createModal(book) {
   modalBackdrop.innerHTML = '';
   modalBackdrop.insertAdjacentHTML('afterbegin', modalTemplate(book));
   checkLS(book._id, 'cart');
-  toggleShoppingList(book._id, 'cart');
+  /*  toggleShoppingList(book._id, 'cart'); */
   console.log(book._id);
 }
 function checkLS(id, storeName) {
   let existingEntries = JSON.parse(localStorage.getItem(storeName));
-  if (!existingEntries == null) return;
+  if (existingEntries == null) return;
   if (existingEntries.find(item => item.id == id)) {
     console.log('show delete button');
   }
 }
-function addEntry(id, storeName) {
+function addEntry(book, storeName) {
   // Parse any JSON previously stored in allEntries
   let existingEntries = JSON.parse(localStorage.getItem(storeName));
   if (existingEntries == null) {
     existingEntries = [];
   }
-  console.log('filter');
+  /*   console.log('filter');
   console.log(existingEntries.filter(item => item.id !== id));
   console.log('find');
-  console.log(existingEntries.find(item => item.id == id));
-  var entry = {
+  console.log(existingEntries.find(item => item.id == id)); */
+  /*   var entry = {
     id: id,
-  };
-  existingEntries.push(entry);
+  }; */
+  existingEntries.push(book);
   localStorage.setItem(storeName, JSON.stringify(existingEntries));
 }
 function deleteEntry(id, storeName) {}
