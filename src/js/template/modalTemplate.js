@@ -25,7 +25,7 @@ export default function modalTemplate({
         </ul>       
     </div>
   </div>
-   <button type="button" id="modal-list-button-id" data-id="${_id}">
+   <button class="modal-list-button"type="button" id="modal-list-button-id" data-id="${_id}">
       Add this book to shopping list
     </button>
     </section>
@@ -36,9 +36,11 @@ function buyLinksTemplate({ name, url }) {
   return `
     <li class="buy-links-item">
     <a target="_blank" rel="noopener noreferrer" aria-label="${name}" href=${url}>
-      <img src="./img/${name.split(' ')[0]}-1x.jpg"  srcset="./img/${
-    name.split(' ')[0]
-  }-2x.png 2x" alt="${name}" class="platform-image">
+      <img src="./img/${name
+        .split(' ')[0]
+        .toLowerCase()}-1x.png"  srcset="./img/${name
+    .split(' ')[0]
+    .toLowerCase()}-2x.png 2x" alt="${name}" class="platform-image">
 </a>
 </li>
 `;
