@@ -1,4 +1,4 @@
-import{r as y,a}from"./assets/renderMarkup-d1b0c9bc.js";import{a as T,S as B,N as I}from"./assets/vendor-dcaf4cbb.js";const M="https://books-backend.p.goit.global/books/";async function p(e,t){try{return(await T.get(M+e,{params:t})).data}catch(o){console.error(o)}}function N(e){e.forEach(t=>{t.classList.add("animation-items")}),setTimeout(()=>{e.forEach(t=>{t.classList.remove("animation-items")})},500)}function q({_id:e,book_image:t,title:o,author:s,description:n,buy_links:c}){return`
+import{r as y,a}from"./assets/renderMarkup-82d2fb58.js";import{a as T,S as B,N as I}from"./assets/vendor-dcaf4cbb.js";const M="https://books-backend.p.goit.global/books/";async function p(e,t){try{return(await T.get(M+e,{params:t})).data}catch(o){console.error(o)}}function N(e){e.forEach(t=>{t.classList.add("animation-items")}),setTimeout(()=>{e.forEach(t=>{t.classList.remove("animation-items")})},500)}function q({_id:e,book_image:t,title:o,author:s,description:n,buy_links:c}){return`
   <section class="modalmenu">
       <button type="button" id="modal-close-id" class="close-button modal-close-button" width="28" height="28">
       <svg class="close-icon" width="24" height="24">
