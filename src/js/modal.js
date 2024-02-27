@@ -27,7 +27,7 @@ function createModal(book) {
   modalBackdrop.style.display = 'flex';
   body.style.overflow = 'hidden';
   modalBackdrop.innerHTML = '';
-  modalBackdrop.insertAdjacentHTML('afterbegin', modalTemplate(isAdded, book));
+  modalBackdrop.insertAdjacentHTML('afterbegin', modalTemplate(book));
   //chack if exist then delete
   console.log(checkLS(book._id, 'cart'));
 }
