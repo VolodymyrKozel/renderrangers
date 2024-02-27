@@ -16,17 +16,17 @@ import{r as g,a as r}from"./assets/renderMarkup-f50bf5a7.js";import{a as C,S as 
         </ul>       
     </div>
   </div>
-   <button type="button" id="modal-list-button-id" data-id="${e}">
+   <button class="modal-list-button"type="button" id="modal-list-button-id" data-id="${e}">
       Add this book to shopping list
     </button>
     </section>
 `}function N({name:e,url:t}){return`
     <li class="buy-links-item">
     <a target="_blank" rel="noopener noreferrer" aria-label="${e}" href=${t}>
-      <img src="./img/${e.split(" ")[0]}-1x.jpg"  srcset="./img/${e.split(" ")[0]}-2x.png 2x" alt="${e}" class="platform-image">
+      <img src="./img/${e.split(" ")[0].toLowerCase()}-1x.png"  srcset="./img/${e.split(" ")[0].toLowerCase()}-2x.png 2x" alt="${e}" class="platform-image">
 </a>
 </li>
-`}const v=document.querySelector("body"),u=document.querySelector(".backdrop");u.addEventListener("click",j);async function A(e){const t=await m(e);console.log(t),O(t),document.addEventListener("keydown",L)}function O(e){u.style.display="flex",v.style.overflow="hidden",u.innerHTML="",u.insertAdjacentHTML("afterbegin",q(e))}function H(e,t){var o=JSON.parse(localStorage.getItem(t));if(o==null)o=[];else if(o.find(n=>n.id==e)){const n=o.filter(a=>a.id!==e);localStorage.setItem(t,JSON.stringify(n))}else{var s={id:e};o.push(s),localStorage.setItem(t,JSON.stringify(o))}}function j(e){if(e.target.nodeName!=="BUTTON"){console.log(e.target);return}console.log(e.target),e.target.id==="modal-list-button-id"&&H(e.target.dataset.id,"cart"),e.target.id=="modal-close-id"&&(x(),console.log("x"))}function L(e){e.key==="Escape"&&(x(),document.removeEventListener("keydown",L))}function x(){u.style.display="none",v.style.overflow="auto"}console.log("category-card");r.mainContainer.addEventListener("click",D);const E=async e=>{r.mainContainer.innerHTML="";try{const t=await m("category",e),o=t[0].list_name;r.mainContainer.insertAdjacentHTML("afterbegin",U(o,t));const s=document.querySelectorAll(".sellers-item");I(s)}catch(t){console.error("Error fetching category books:",t)}};function D(e){const t=e.target.closest(".sellers-item").dataset.id;A(t)}function U(e,t){const o=e.split(" "),s=o.pop();return o.push(`<span class="accent">${s}</span>`),`
+`}const L=document.querySelector("body"),u=document.querySelector(".backdrop");u.addEventListener("click",j);async function A(e){const t=await m(e);console.log(t),O(t),document.addEventListener("keydown",v)}function O(e){u.style.display="flex",L.style.overflow="hidden",u.innerHTML="",u.insertAdjacentHTML("afterbegin",q(e))}function H(e,t){var o=JSON.parse(localStorage.getItem(t));if(o==null)o=[];else if(o.find(n=>n.id==e)){const n=o.filter(a=>a.id!==e);localStorage.setItem(t,JSON.stringify(n))}else{var s={id:e};o.push(s),localStorage.setItem(t,JSON.stringify(o))}}function j(e){if(e.target.nodeName!=="BUTTON"){console.log(e.target);return}console.log(e.target),e.target.id==="modal-list-button-id"&&H(e.target.dataset.id,"cart"),e.target.id=="modal-close-id"&&(x(),console.log("x"))}function v(e){e.key==="Escape"&&(x(),document.removeEventListener("keydown",v))}function x(){u.style.display="none",L.style.overflow="auto"}console.log("category-card");r.mainContainer.addEventListener("click",D);const E=async e=>{r.mainContainer.innerHTML="";try{const t=await m("category",e),o=t[0].list_name;r.mainContainer.insertAdjacentHTML("afterbegin",U(o,t));const s=document.querySelectorAll(".sellers-item");I(s)}catch(t){console.error("Error fetching category books:",t)}};function D(e){const t=e.target.closest(".sellers-item").dataset.id;A(t)}function U(e,t){const o=e.split(" "),s=o.pop();return o.push(`<span class="accent">${s}</span>`),`
     <section class="seller-section">
       <h1 class="section-title category-card-title">${o.join(" ")}</h1>
       <ul class="sellers-category-list sellers-exclude flex-wrap">${g(z,t)}</ul>
