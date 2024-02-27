@@ -8,9 +8,6 @@ modalBackdrop.addEventListener('click', handleClickModal);
 const currentBook = [];
 let isAdded = true;
 
-function modalBook() {
-  onOpen();
-}
 // Open modalmenu
 export async function getBookById(id) {
   const data = await getDataBooks(id);
@@ -22,14 +19,14 @@ export async function getBookById(id) {
   }); */
 }
 function createModal(book) {
-  localStorage.setItem('currentBook', JSON.stringify(book));
+  //open
   currentBook.push(book);
   modalBackdrop.style.display = 'flex';
   body.style.overflow = 'hidden';
   modalBackdrop.innerHTML = '';
   modalBackdrop.insertAdjacentHTML('afterbegin', modalTemplate(book));
   //chack if exist then delete
-  console.log(checkLS(book._id, 'cart'));
+  checkLS(book._id, 'cart');
 }
 function checkLS(id, storeName) {
   let existingEntries = JSON.parse(localStorage.getItem(storeName));
