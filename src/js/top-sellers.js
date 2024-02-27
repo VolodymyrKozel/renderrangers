@@ -17,8 +17,8 @@ export const getTopBooksData = async () => {
   const booksList = document.createElement('ul');
   booksList.classList.add('sellers-list');
   booksList.innerHTML = `<span class="loader"></span>`;
-  refs.mainContainer.appendChild(booksList); // додаємо пустий список книг
-
+  const sellerSection = refs.mainContainer.querySelector('.seller-section');
+  sellerSection.appendChild(booksList);
   // виводимо лоадер
   const loader = refs.mainContainer.querySelector('.loader');
   getLoader();
