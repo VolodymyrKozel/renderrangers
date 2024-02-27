@@ -3,7 +3,7 @@ import { Navigation } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/navigation';
 
-import { supportList } from '../../db/supportList';
+import { supportList } from '../db/supportList';
 import { refs } from './refs';
 
 renderSupportList(supportList);
@@ -32,8 +32,8 @@ function createSupportItem(item, index) {
 
   const imgEl = document.createElement('img');
   imgEl.classList.add('support-img');
-  imgEl.src = img;
-  imgEl.srcset = srcset;
+  imgEl.src = `./img/support/${img}.png`;
+  imgEl.srcset = `./img/support/${srcset}`;
   imgEl.alt = title;
 
   a.append(span, imgEl);

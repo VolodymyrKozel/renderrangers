@@ -21,8 +21,8 @@ export const supportList = [
   {
     title: 'Save the Children',
     url: 'https://www.savethechildren.net/what-we-do/emergencies/ukraine-crisis',
-    img: stc,
-    srcset: stc2x,
+    img: 'stc',
+    srcset: 'stc@2x.png 2x',
   },
   {
     title: 'Project HOPE',
