@@ -8,6 +8,9 @@ modalBackdrop.addEventListener('click', handleClickModal);
 const currentBook = [];
 let isAdded = true;
 
+function modalBook() {
+  onOpen();
+}
 // Open modalmenu
 export async function getBookById(id) {
   const data = await getDataBooks(id);
