@@ -1,9 +1,9 @@
 .header-logo-icon-bookshelf {
-  fill: var(--black-1);
+  fill: var(--black);
 }
 
 body.dark-theme {
-  background-color: var(--black);
+  background-color: var(--black-1);
   color: var(--white);
 }
 
@@ -12,11 +12,12 @@ body.dark-theme .header-logo-icon-bookshelf {
 }
 
 body.dark-theme .header-container {
+  background-color: var(--black);
   border-color: var(--white);
 }
 
 body.dark-theme .header-nav .current {
-  color: var(--black-1);
+  color: var(--black);
 }
 
 body.dark-theme .header-nav-link {
