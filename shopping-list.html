@@ -7,8 +7,8 @@
     <title>Shopping List</title>
     
     <script type="module" crossorigin src="/renderrangers/commonHelpers2.js"></script>
-    <link rel="modulepreload" crossorigin href="/renderrangers/assets/renderMarkup-f50bf5a7.js">
-    <link rel="stylesheet" href="/renderrangers/assets/renderMarkup-d1e101c9.css">
+    <link rel="modulepreload" crossorigin href="/renderrangers/assets/renderMarkup-3fdc6bca.js">
+    <link rel="stylesheet" href="/renderrangers/assets/renderMarkup-4cdc1331.css">
   </head>
   <body>
     <header class="section header-section">
@@ -75,45 +75,39 @@
         </div>
     </div>
 </header>
-    <div class="container container-flex-xl">
-      <aside class="aside">
-        <section class="support">
-  <div class="support-header">
-    <h3 class="support-title">Support Ukraine</h3>
-    <svg class="support-triden" width="20" height="32">
-      <use href=" ./img/icons/icons.svg#icon-trident"></use>
-    </svg>
-  </div>
-
-  <div class="swiper support-swiper">
-    <ul class="swiper-wrapper"></ul>
-  </div>
-
-  <div class="swiper-navigation">
-    <button class="swiper-button-nav next-btn">
-      <svg class="support-svg-icon icon-revert" width="22" height="32">
-        <use href=" ./img/icons/icons.svg#icon-scroll-up"></use>
-      </svg>
-    </button>
-
-    <button class="swiper-button-nav prev-btn swiper-button-hidden">
-      <svg class="support-svg-icon" width="22" height="32">
-        <use href=" ./img/icons/icons.svg#icon-scroll-up"></use>
-      </svg>
-    </button>
-  </div>
+    <main>
+      <section class="container">
+        <h1 class="shopping-list-text">
+          Shopping <span class="shopping-list-color">List</span>
+        </h1>
+        <ul class="shopping-list-container js-shopping-main"></ul>
+        <div class="shopping-box-empty">
+          <p class="shopping-list-container-text">
+            This page is empty, add some books <br />
+            and proceed to order.
+          </p>
+          <picture>
+            <source
+              srcset="/renderrangers/assets/empty-mobi-1x-e834be2d.png "
+              width="265"
+              height="198"
+              media="(max-width: 767px)"
+            />
+            <source
+              srcset="/renderrangers/assets/empty-1x-de0fe82a.png "
+              width="322"
+              height="241"
+              media="(min-width: 768px)"
+            />
+            <img src="/renderrangers/assets/empty-1x-de0fe82a.png" alt="empty" />
+          </picture>
+        </div>
+      </section>
+      <section class="category">
+  <ul class="js-category-list scroll"></ul>
 </section>
 
-      </aside>
-      <main class="main">
-        <section class="shopping-list">
-          <h1 class="shopping-list-text">
-            Shopping <span class="shopping-list-span">List</span>
-          </h1>
-          <div class="shopping-list-container js-shopping-main"></div>
-        </section>
-      </main>
-    </div>
+    </main>
     
   </body>
 </html>

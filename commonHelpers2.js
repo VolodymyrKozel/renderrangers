@@ -1,30 +1,42 @@
-import{r as t,a as r}from"./assets/renderMarkup-f50bf5a7.js";const o={isSupported(){return typeof Storage<"u"},has(e){return localStorage.hasOwnProperty(e)},get(e){let s=localStorage.getItem(e);if(typeof s!="string")return s;if(s!=="undefined")return s==="null"?null:/^'-?\d{1,}?\.?\d{1,}'$/.test(s)||/^'-?\d{1}\.\d+e\+\d{2}'$/.test(s)?Number(s):s[0]==="{"||s[0]==="["?JSON.parse(s):s},set(e,s){if(typeof e!="string")throw new TypeError(`localStorage: Ключ повинен бути рядком. (зчитування '${e}')`);(typeof s=="object"||Array.isArray(s))&&(s=JSON.stringify(s)),localStorage.setItem(e,s)},remove(e){localStorage.removeItem(e)}};o.remove("cart1");if(o.has("cart")){const e=o.get("cart");console.log(e[0]),t(a,r.shoppingListMain,o.get("cart"))}else t(n);function n(e){return console.log(e),`<p class="shopping-list-container-text">
-            This page is empty, add some books <br />
-            and proceed to order.
-          </p>`}function a({book_image:e,title:s,list_name:i}){return console.log(book),`<ul class="shopping-list">
-  <li class="shopping-item">
-    <img class="shopping-img" src="${e}" alt="${s}" width="100" height="142" />
-    <svg class="header-logo-icon-bookshelf" width="12" height="12">
-      <use href="./img/icons/icons.svg#icon-bookshelf"></use>
-    </svg>
-    <h2 class="shopping-item-title">${s}</h2>
-    <p class="shopping-category-title">${i}</p>
-    <p class="shopping-desc"></p>
-    <p class="shopping-autor"></p>
-    <ul class="shopping-shop-list">
-      <li class="shopping-shop-item">
-        <a class="shopping-shop-link" href="">
-          <svg class="header-logo-icon-bookshelf" width="77" height="14">
-            <use href="./img/icons/icons.svg#icon-amazon"></use>
-          </svg>
-        </a>
-        <a class="shopping-shop-link" href="">
-          <svg class="header-logo-icon-bookshelf" width="77" height="14">
-            <use href="./img/icons/icons.svg#icon-amazon"></use>
-          </svg>
-        </a>
-      </li>
-    </ul>
-  </li>
-</ul>`}
+import{a as n,r as l}from"./assets/renderMarkup-3fdc6bca.js";const p={isSupported(){return typeof Storage<"u"},has(s){return localStorage.hasOwnProperty(s)},get(s){let t=localStorage.getItem(s);if(typeof t!="string")return t;if(t!=="undefined")return t==="null"?null:/^'-?\d{1,}?\.?\d{1,}'$/.test(t)||/^'-?\d{1}\.\d+e\+\d{2}'$/.test(t)?Number(t):t[0]==="{"||t[0]==="["?JSON.parse(t):t},set(s,t){if(typeof s!="string")throw new TypeError(`localStorage: Ключ повинен бути рядком. (зчитування '${s}')`);(typeof t=="object"||Array.isArray(t))&&(t=JSON.stringify(t)),localStorage.setItem(s,t)},remove(s){localStorage.removeItem(s)}};function c({_id:s,list_name:t,author:i,title:e,book_image:a,description:o,buy_links:r}){return`<li class="shopping-item">
+            <img
+              class="shopping-img"
+              src="${a}"
+              alt="${e}"
+            />
+            <div class="shopping-wrap">
+              <div class="heading-info">
+                <div class="title-container">
+                  <h2 class="title-book">
+                    ${e}
+                  </h2>
+                  <p class="category-book">${t}</p>
+                </div>
+                <button
+                  class="delete-shopping-item-btn"
+                  data-id="${s}"
+                >
+                  <svg class="trash-btn-icon" height="16" width="16">
+                    <use href="./img/icons/icons.svg#icon-trash"></use>
+                  </svg>
+                </button>
+              </div>
+              <p class="descr-shopping">${o}</p>
+              <div class="author-info-container">
+                <p class="author-info">${i}</p>
+                ${g(r)}
+              </div>
+            </div>
+          </li>`}function g(s){const t=s.find(e=>e.name==="Amazon").url,i=s.find(e=>e.name==="Apple Books").url;return`<ul class="shop-link-list">
+              <li class=""shop-link-item>
+                <a class="shop-link-amazon" href="${t}" target="_blank">
+                   <img src="./img/amazon.png" alt="Amazon" class="amazon-image">
+                </a>
+              </li>
+              <li class=""shop-link-item>
+                <a class="shop-link-amazon" href="${i}" target="_blank">
+                    <img src="./img/apple-1x.png" alt="Apple-books" class="apple-books-image">
+                </a>
+              </li>
+          </ul>`}function m(){n.shoppingListMain.innerHTML="";let s=p.get("cart");if(!s||!s.length)return;n.shoppingText.style.marginBottom="40px",n.shoppingEmpty.classList.add("hidden");const i=l(c,s);n.shoppingListMain.innerHTML=i}m();
 //# sourceMappingURL=commonHelpers2.js.map
