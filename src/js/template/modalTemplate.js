@@ -14,7 +14,7 @@ export default function modalTemplate(isAdded,{
   <section class="modalmenu">
       <button type="button" id="modal-close-id" class="close-button modal-close-button" width="28" height="28">
       <svg class="close-icon" width="24" height="24">
-        <use src="./img/icons/icons.svg#icon-x-close"></use>
+        <use href="./img/icons/icons.svg#icon-x-close"></use>
       </svg>
     </button>
   <div class="modal-container">
@@ -29,7 +29,7 @@ export default function modalTemplate(isAdded,{
     </div>
   </div>
    <button class="modal-list-button" type="button" id="modal-list-button-id" data-role="add" data-id="${_id}">
-      add to shopping list'
+      add to shopping list
     </button>
     </section>
 `;
