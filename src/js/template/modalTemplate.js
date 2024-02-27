@@ -1,3 +1,6 @@
+import apple from '../../img/amazon-1x.png';
+import amazon from '../../img/apple-1x.png';
+
 import renderMarkup from '../helpers/renderMarkup';
 export default function modalTemplate(isAdded,{
   _id,
