@@ -1,5 +1,5 @@
 import renderMarkup from '../helpers/renderMarkup';
-export default function modalTemplate({
+export default function modalTemplate(isAdded,{
   _id,
   book_image,
   title,
@@ -9,7 +9,7 @@ export default function modalTemplate({
 }) {
   return `
   <section class="modalmenu">
-      <button type="button" id="modal-close-id" class="close-button modal-close-button">
+      <button type="button" id="modal-close-id" class="close-button modal-close-button" width="28" height="28">
       <svg class="close-icon" width="24" height="24">
         <use src="./img/icons/icons.svg#icon-x-close"></use>
       </svg>
@@ -25,8 +25,8 @@ export default function modalTemplate({
         </ul>       
     </div>
   </div>
-   <button class="modal-list-button"type="button" id="modal-list-button-id" data-id="${_id}">
-      Add this book to shopping list
+   <button class="modal-list-button" type="button" id="modal-list-button-id" data-role="add" data-id="${_id}">
+      add to shopping list'
     </button>
     </section>
 `;

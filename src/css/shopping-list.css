@@ -1,0 +1,226 @@
+.hidden {
+    display: none;
+}
+
+.shopping-list-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.shopping-list-text {
+    font-weight: 700;
+    font-size: 32px;
+    line-height: 1.1875;
+    letter-spacing: -0.04em;
+    margin-bottom: 120px;
+}
+
+.shopping-list-color {
+    color: #4f2ee8;
+}
+
+.shopping-list-container-text {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 1.28571;
+    letter-spacing: -0.02em;
+    text-align: center;
+    color: rgba(0, 0, 0, 0.6);
+}
+
+.shopping-box-empty img {
+margin: 0 auto;
+}
+
+.shopping-item {
+    width: 335px;
+    height: 170px;
+    border: 2px solid rgba(79, 46, 232, 0.4);
+    border-radius: 16px;
+    padding: 14px;
+    display: flex;
+}
+
+.shopping-img {
+    width: 100px;
+    height: 142px;
+    border-radius: 8px;
+    margin-right: 14px;
+}
+
+.heading-info {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 8px;
+}
+
+.shopping-wrap {
+    width: 100%;
+}
+
+.title-book {
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 1.125;
+    letter-spacing: -0.04em;
+    text-transform: uppercase;
+    margin-bottom: 4px;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    text-overflow: ellipsis;
+}
+
+.category-book {
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 1.16667;
+    letter-spacing: 0.03em;
+    color: #b4afaf;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    text-overflow: ellipsis;
+}
+
+.delete-shopping-item-btn {
+    width: 28px;
+    height: 28px;
+    border-radius: 100%;
+    border: none;
+    background-color: #4f2ee8;
+}
+
+.trash-btn-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    fill: #ffffff;
+}
+
+.descr-shopping {
+    width: 193px;
+    height: 58px;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    text-overflow: ellipsis;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 1.28571;
+    letter-spacing: -0.04em;
+    margin-bottom: 16px;
+}
+
+.author-info-container {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    justify-content: space-between;
+    font-style: italic;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 1.16667;
+    letter-spacing: -0.04em;
+    color: #b4afaf;
+}
+
+.author-info {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    text-overflow: ellipsis;
+}
+
+.shop-link-list {
+    display: flex;
+    flex-direction: row;
+    gap: 8px;
+    align-items: flex-end;
+}
+
+.apple-books-image {
+    width: 16px;
+    height: 16px;
+    mix-blend-mode: luminosity;
+}
+
+.apple-books-image:hover {
+    box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.15);
+}
+
+.amazon-image {
+    width: 32px;
+    height: 11px;
+    mix-blend-mode: luminosity;
+}
+
+.amazon-image:hover {
+    box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.15);
+}
+
+@media screen and (min-width: 768px) {
+.shopping-list-text {
+    font-size: 48px;
+    line-height: 1.08333;
+}
+
+.shopping-item {
+    width: 704px;
+    height: 213px;
+    padding: 24px;
+}
+
+.shopping-img {
+    width: 116px;
+    height: 165px;
+    margin-right: 24px;
+}
+
+.heading-info {
+    margin-bottom: 14px;
+}
+
+.delete-shopping-item-btn {
+    height: 34px;
+    width: 34px;
+    padding: 8px;
+}
+
+.trash-btn-icon {
+    width: 18px;
+    height: 18px;
+}
+
+.descr-shopping {
+    width: 508px;
+    margin-bottom: 33px;
+}
+
+.author-info {
+    margin-top: 15px;
+}
+
+.shop-link-list {
+    gap: 16px;
+}
+
+.amazon-image {
+    width: 48px;
+    height: 15px;
+}
+
+.apple-books-image {
+    width: 28px;
+    height: 27px;
+}
+
+}
+
+
+

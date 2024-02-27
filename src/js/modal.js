@@ -5,13 +5,12 @@ import modalTemplate from './template/modalTemplate';
 const body = document.querySelector('body');
 const modalBackdrop = document.querySelector('.backdrop');
 modalBackdrop.addEventListener('click', handleClickModal);
-/* const closeModalButton = document.querySelector('.modal-close-button'); */
-/* const listButton = document.querySelector('.modal-list-button'); */
+const currentBook = [];
+let isAdded = true;
 
 // Open modalmenu
 export async function getBookById(id) {
   const data = await getDataBooks(id);
-  console.log(data);
   createModal(data);
   document.addEventListener('keydown', escapeCloseModal);
   /*   listButton.addEventListener('click', function () {
@@ -20,54 +19,68 @@ export async function getBookById(id) {
   }); */
 }
 function createModal(book) {
+  localStorage.setItem('currentBook', JSON.stringify(book));
+  currentBook.push(book)
   modalBackdrop.style.display = 'flex';
   body.style.overflow = 'hidden';
   modalBackdrop.innerHTML = '';
-  modalBackdrop.insertAdjacentHTML('afterbegin', modalTemplate(book));
+  modalBackdrop.insertAdjacentHTML('afterbegin', modalTemplate(isAdded, book));
+  //chack if exist then delete
+  console.log(checkLS('cart'));
+
 }
-function addEntry(id, storeName) {
+function checkLS(storeName) {
+  let existingEntries = JSON.parse(localStorage.getItem(storeName));
+  if (existingEntries == null) return false;
+  if (currentBook.find(item => item.id === JSON.parse(localStorage.getItem('cart')).id) === true) {return true;}else {return false}
+
+}
+function addEntry(storeName) {
   // Parse any JSON previously stored in allEntries
-  var existingEntries = JSON.parse(localStorage.getItem(storeName));
+  let existingEntries = JSON.parse(localStorage.getItem(storeName));
   if (existingEntries == null) {
     existingEntries = [];
-  } else if (existingEntries.find(item => item.id == id)) {
-    const del = existingEntries.filter(item => item.id !== id);
-    localStorage.setItem(storeName, JSON.stringify(del));
-  } else {
-    var entry = {
-      id: id,
-    };
-    /*   if (existingEntries !== []) */
-    /* localStorage.setItem(storeName, JSON.stringify(entry)); */
-    // Save allEntries back to local storage
-    existingEntries.push(entry);
-    localStorage.setItem(storeName, JSON.stringify(existingEntries));
   }
+  existingEntries.push(currentBook);
+  localStorage.setItem(storeName, JSON.stringify(existingEntries));
+}
+function deleteEntry(id , storeName) {
+  let existingEntries = JSON.parse(localStorage.getItem(storeName));
+  const newEntries = existingEntries.filter(item => item.id !== id);
+  localStorage.setItem(storeName, JSON.stringify(newEntries));
 }
 function handleClickModal(e) {
-  if (e.target.nodeName !== 'BUTTON') {
-    console.log(e.target);
-    return; // користувач клікнув між кнопками
-  }
-  console.log(e.target);
   if (e.target.id === 'modal-list-button-id') {
-    addEntry(e.target.dataset.id, 'cart');
-  }
-  //use localstorage for saving active item
-  // виводимо лоадер
+    if (isAdded) {
+      addEntry('cart');
+      //set to store
+      e.target.textContent = "add to shopping list"
+      isAdded = false
+    } if (isAdded === false) {
+      deleteEntry(e.target.dataset.id, 'cart')
+      //del from store
+      isAdded = true;
+        e.target.textContent = "remove from the shopping list"
+    }
 
-  if (e.target.id == 'modal-close-id') {
+  }
+
+  if (e.target.tagName === 'svg') {
     closeModal();
-    console.log('x');
-    //use localstorage for saving active item
-    // виводимо лоадер
+  }
+  if (e.target.id === 'mBackdrop') {
+    closeModal();
+  }
+  if (e.target.nodeName !== 'BUTTON') {
+    return;
   }
 }
 
 //Shopping list
-function toggleShoppingList(id) {
+function toggleShoppingList(id, storeName) {
+  const listButton = document.querySelector('.modal-list-button');
   const buttonText = listButton.textContent.trim();
-  const storedData = localStorage.getItem('shoppingList');
+  const storedData = localStorage.getItem(storeName);
   const shoppingList = JSON.parse(storedData) || {};
 
   if (buttonText === 'Add this book to shopping list') {
@@ -79,23 +92,8 @@ function toggleShoppingList(id) {
     }
     listButton.textContent = 'Add this book to shopping list';
   }
-  localStorage.setItem('shoppingList', JSON.stringify(shoppingList));
+  localStorage.setItem(storeName, JSON.stringify(shoppingList));
 }
-
-//////
-
-//Close modalmenu
-/* document.addEventListener('DOMContentLoaded', function () {
-  closeModalButton.addEventListener('click', function () {
-    closeModal();
-  });
-
-  modalBackdrop.addEventListener('click', function (event) {
-    if (event.target === modalBackdrop) {
-      closeModal();
-    }
-  });
-}); */
 
 function escapeCloseModal(event) {
   if (event.key === 'Escape') {
