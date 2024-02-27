@@ -24,31 +24,33 @@ function createModal(book) {
   body.style.overflow = 'hidden';
   modalBackdrop.innerHTML = '';
   modalBackdrop.insertAdjacentHTML('afterbegin', modalTemplate(book));
+  checkLS(book._id, 'cart');
+  console.log(book._id);
+}
+function checkLS(id, storeName) {
+  let existingEntries = JSON.parse(localStorage.getItem(storeName));
+  if (!existingEntries == null) return;
+  if (existingEntries.find(item => item.id == id)) {
+    console.log('show delete button');
+  }
 }
 function addEntry(id, storeName) {
   // Parse any JSON previously stored in allEntries
-  var existingEntries = JSON.parse(localStorage.getItem(storeName));
+  let existingEntries = JSON.parse(localStorage.getItem(storeName));
   if (existingEntries == null) {
     existingEntries = [];
-  } else if (existingEntries.find(item => item.id == id)) {
-    const del = existingEntries.filter(item => item.id !== id);
-    localStorage.setItem(storeName, JSON.stringify(del));
-  } else {
-    var entry = {
-      id: id,
-    };
-    /*   if (existingEntries !== []) */
-    /* localStorage.setItem(storeName, JSON.stringify(entry)); */
-    // Save allEntries back to local storage
-    existingEntries.push(entry);
-    localStorage.setItem(storeName, JSON.stringify(existingEntries));
   }
+  console.log('filter');
+  console.log(existingEntries.filter(item => item.id !== id));
+  console.log('find');
+  console.log(existingEntries.find(item => item.id == id));
+  var entry = {
+    id: id,
+  };
+  existingEntries.push(entry);
+  localStorage.setItem(storeName, JSON.stringify(existingEntries));
 }
 function handleClickModal(e) {
-  if (e.target.nodeName !== 'BUTTON') {
-    console.log(e.target);
-    return; // користувач клікнув між кнопками
-  }
   console.log(e.target);
   if (e.target.id === 'modal-list-button-id') {
     addEntry(e.target.dataset.id, 'cart');
@@ -56,11 +58,20 @@ function handleClickModal(e) {
   //use localstorage for saving active item
   // виводимо лоадер
 
-  if (e.target.id == 'modal-close-id') {
+  if (e.target.tagName === 'svg') {
     closeModal();
     console.log('x');
     //use localstorage for saving active item
     // виводимо лоадер
+  }
+  if (e.target.id === 'mBackdrop') {
+    console.log('x');
+    modalBackdrop.style.display = 'none';
+    body.style.overflow = 'auto';
+    closeModal();
+  }
+  if (e.target.nodeName !== 'BUTTON') {
+    return; // користувач клікнув між кнопками
   }
 }
 
@@ -82,21 +93,14 @@ function toggleShoppingList(id) {
   localStorage.setItem('shoppingList', JSON.stringify(shoppingList));
 }
 
-//////
-
-//Close modalmenu
-/* document.addEventListener('DOMContentLoaded', function () {
-  closeModalButton.addEventListener('click', function () {
-    closeModal();
-  });
-
-  modalBackdrop.addEventListener('click', function (event) {
-    if (event.target === modalBackdrop) {
-      closeModal();
-    }
-  });
+/* closeModalButton.addEventListener('click', function () {
+  closeModal();
 }); */
-
+/* modalBackdrop.addEventListener('click', function (event) {
+  if (event.target === modalBackdrop) {
+    closeModal();
+  }
+}); */
 function escapeCloseModal(event) {
   if (event.key === 'Escape') {
     closeModal();

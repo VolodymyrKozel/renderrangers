@@ -9,7 +9,7 @@ export default function modalTemplate({
 }) {
   return `
   <section class="modalmenu">
-      <button type="button" id="modal-close-id" class="close-button modal-close-button">
+      <button type="button" id="modal-close-id" class="close-button modal-close-button" width="28" height="28">
       <svg class="close-icon" width="24" height="24">
         <use src="./img/icons/icons.svg#icon-x-close"></use>
       </svg>
