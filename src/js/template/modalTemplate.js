@@ -1,7 +1,5 @@
 import apple from '../../img/amazon-1x.png';
 import amazon from '../../img/apple-1x.png';
-import apple2x from '../../img/amazon-2x.png';
-import amazon2x from '../../img/apple-2x.png';
 
 import renderMarkup from '../helpers/renderMarkup';
 export default function modalTemplate({
@@ -16,7 +14,7 @@ export default function modalTemplate({
   <section class="modalmenu">
       <button type="button" id="modal-close-id" class="close-button modal-close-button" width="28" height="28">
       <svg class="close-icon" width="24" height="24">
-        <use href="./img/icons/icons.svg#icon-x-close"></use>
+        <use src="./img/icons/icons.svg#icon-x-close"></use>
       </svg>
     </button>
   <div class="modal-container">
@@ -31,7 +29,7 @@ export default function modalTemplate({
     </div>
   </div>
    <button class="modal-list-button" type="button" id="modal-list-button-id" data-role="add" data-id="${_id}">
-      add to shopping list
+      add to shopping list'
     </button>
     </section>
 `;
@@ -41,11 +39,11 @@ function buyLinksTemplate({ name, url }) {
   return `
     <li class="buy-links-item">
     <a target="_blank" rel="noopener noreferrer" aria-label="${name}" href=${url}>
-      <img src="${name
+      <img src="./img/${name
         .split(' ')[0]
-        .toLowerCase() === 'amazon' ? amazon : apple}"  srcset="${name
+        .toLowerCase()}-1x.png"  srcset="./img/${name
     .split(' ')[0]
-    .toLowerCase() === 'amazon' ? amazon2x : apple2x} 2x" alt="${name}" class="platform-image">
+    .toLowerCase()}-2x.png 2x" alt="${name}" class="platform-image">
 </a>
 </li>
 `;
