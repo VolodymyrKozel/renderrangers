@@ -4,6 +4,7 @@ import LocalStorage from './helpers/localStorageHelper';
 import renderMarkup from './helpers/renderMarkup';
 import shoppingListTemplate from './template/shoppingListTemplate';
 import { refs } from './refs';
+import { createPagination } from './pagination';
 const storeName = 'cart';
 
 function renderItem() {
