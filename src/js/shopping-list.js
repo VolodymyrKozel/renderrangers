@@ -1,5 +1,5 @@
 import './header';
-import './helpers/pagination';
+import './pagination';
 import { getDataBooks } from './Api/uBooksApi';
 import LocalStorage from './helpers/localStorageHelper';
 import renderMarkup from './helpers/renderMarkup';
