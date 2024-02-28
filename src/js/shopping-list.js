@@ -107,3 +107,9 @@ function handleDeleteClick(e) {
 }
 
 renderItem();
+
+//hide aside
+if (window.innerWidth < 1440) {
+  console.log('1440');
+  document.querySelector('.aside').style.display = 'none';
+}
