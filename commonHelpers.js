@@ -12,7 +12,7 @@ import{r as I,a as A}from"./assets/header-37016ac3.js";import{a as C,S as h,N as
       <p class="modal-author">${s}</p>
       <p class="description">${o}</p>
         <ul class="buy-links-list">
-      ${I(L,i.slice(0,2))}
+      ${I(L,i.slice(0,2).reverse())}
         </ul>       
     </div>
   </div>
