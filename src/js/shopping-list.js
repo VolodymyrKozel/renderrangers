@@ -2,6 +2,8 @@ import LocalStorage from "./helpers/localStorageHelper";
 import renderMarkup from "./helpers/renderMarkup";
 import { refs } from "./refs";
 
+refs.shoppingListMain.addEventListener('click', isDeleteBtnClick);
+
 function templateList({
   _id,
   list_name,
@@ -63,14 +65,15 @@ function murkupLinks(buy_links) {
 function renderItem() {
   refs.shoppingListMain.innerHTML = '';
   let data = LocalStorage.get('cart');
-
   const isStorageEmpty = !data || !data.length;
-  if (isStorageEmpty) return;
-
-  refs.shoppingText.style.marginBottom = '40px';
-  refs.shoppingEmpty.classList.add('hidden');
-  const books = renderMarkup(templateList, data);
-  refs.shoppingListMain.innerHTML = books;
+  if (isStorageEmpty) {
+      refs.shoppingEmpty.classList.remove('hidden');
+  } else {
+      refs.shoppingText.style.marginBottom = '40px';
+      refs.shoppingEmpty.classList.add('hidden');
+      const books = renderMarkup(templateList, data);
+      refs.shoppingListMain.innerHTML = books;
+  }
 }
  
 renderItem();
@@ -94,4 +97,3 @@ function isDeleteBtnClick(e) {
   }
 }
 
-refs.shoppingListMain.addEventListener('click', isDeleteBtnClick);
