@@ -2,15 +2,35 @@ import Pagination from 'tui-pagination';
 import 'tui-pagination/dist/tui-pagination.css';
 import '../css/pagination.css';
 
-import { getBookById } from './modal';
+import { renderItem } from './shopping-list'
 
-const pagContainer = document.querySelector('#tui-pagination-container');
+export function createPagination(totalItems) {
+  const pagContainer = document.querySelector('#tui-pagination-container');
+  let visiblePages = 2;
+  let itemsPerPage = 4;
+  if (window.innerWidth >= 768) {
+    visiblePages = 3;
+    itemsPerPage = 3;
+  }
 
-let visiblePages = 2;
-let itemsPerPage = 4;
-if (window.innerWidth >= 768) {
-  visiblePages = 3;
-  itemsPerPage = 3;
+  const options = {
+    totalItems,
+    itemsPerPage,
+    visiblePages,
+    centerAlign: true,
+  };
+  const pagination = new Pagination(pagContainer, options);
+
+  pagination.on('afterMove', event => {
+    const currentPage = event.page;
+    onPageChange(currentPage);
+  });
+
+  return pagination;
+}
+
+function onPageChange(totalItems) {
+ renderItem(totalItems);
 }
 
 // const shoppingList = localStorage.getItem('shoppingList');
@@ -19,14 +39,6 @@ if (window.innerWidth >= 768) {
 
 // const shoppingListArr = Object.keys(listObj);
 // console.log(shoppingListArr);
-
-const options = {
-  // totalItems: shoppingListArr.length,
-  itemsPerPage,
-  visiblePages,
-};
-
-export const pagination = new Pagination(pagContainer, options);
 
 // pagination.on('beforeMove', event => {
 //   if (shoppingListArr.length / itemsPerPage <= 1) {
@@ -43,4 +55,4 @@ export const pagination = new Pagination(pagContainer, options);
 //   );
 // });
 
-pagination.movePageTo(1)
+// pagination.movePageTo(1);

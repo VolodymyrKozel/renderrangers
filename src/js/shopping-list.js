@@ -1,9 +1,10 @@
 import './header';
-import './pagination';
+// import { } from './pagination';
 import { getDataBooks } from './Api/uBooksApi';
 import LocalStorage from './helpers/localStorageHelper';
 import renderMarkup from './helpers/renderMarkup';
 import { refs } from './refs';
+import { createPagination } from './pagination';
 const storeName = 'cart';
 // async function getBookById(id) {
 //   const data = await getDataBooks(id);
@@ -74,7 +75,7 @@ function murkupLinks(buy_links) {
           </ul>`;
 }
 
-function renderItem() {
+export function renderItem(totalItems) {
   refs.shoppingListMain.innerHTML = '';
   let data = LocalStorage.get(storeName);
 
@@ -88,6 +89,7 @@ function renderItem() {
   const listOfBook = document.querySelector('.js-shopping-main');
   console.log(listOfBook);
   listOfBook.addEventListener('click', handleDeleteClick);
+ 
 }
 
 function handleDeleteClick(e) {
