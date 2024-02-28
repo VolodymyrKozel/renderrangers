@@ -97,7 +97,8 @@ body.dark-theme .header-burger span {
 
 .header-logo-icon-bookshelf {
   clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
-  transition: fill 350ms cubic-bezier(0.4, 0, 0.2, 1), clip-path 800ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: fill 350ms cubic-bezier(0.4, 0, 0.2, 1),
+    clip-path 800ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .header-logo-link:hover .header-logo-icon-bookshelf,
@@ -139,7 +140,7 @@ body.dark-theme .header-burger span {
   visibility: hidden;
 }
 
-.checkbox-input:checked+label {
+.checkbox-input:checked + label {
   left: 21px;
   background-color: var(--white);
   box-shadow: inset 0px -3px 5px 0px var(--violet);
@@ -178,7 +179,6 @@ body.dark-theme .header-burger span {
 }
 
 @media (max-width: 767px) {
-
   .header {
     position: fixed;
   }
@@ -192,10 +192,9 @@ body.dark-theme .header-burger span {
     cursor: pointer;
   }
 
-    .header-burger:hover
-    .header-burger:focus {
-      color: #4f2ee8;
-    }
+  .header-burger:hover .header-burger:focus {
+    color: #4f2ee8;
+  }
 
   .header-burger span {
     position: absolute;
@@ -271,7 +270,6 @@ body.dark-theme .header-burger span {
   .header-burger.open-menu:focus {
     color: #4f2ee8;
   }
-
 }
 
 .burger-menu-icon {
@@ -396,5 +394,11 @@ body.dark-theme .header-burger span {
 
   .arrow-btn-icon {
     stroke: #eac645;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .header-logo {
+    margin-right: 74px;
   }
 }

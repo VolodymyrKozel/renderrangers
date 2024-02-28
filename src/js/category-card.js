@@ -55,7 +55,7 @@ function booksCategoryTemplate(categoryName, categoryBooks) {
   return `
     <section class="seller-section">
       <h1 class="section-title category-card-title">${words.join(' ')}</h1>
-      <ul class="sellers-category-list sellers-exclude flex-wrap">${renderMarkup(
+      <ul class="sellers-exclude flex-wrap">${renderMarkup(
         booksTemplate,
         categoryBooks
       )}</ul>
