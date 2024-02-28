@@ -3,7 +3,6 @@ import { getDataBooks } from './Api/uBooksApi';
 import { getCategoryBooks } from './category-card';
 import renderMarkup from './helpers/renderMarkup';
 import { getTopBooksData } from './top-sellers';
-/* import { getLoader } from './helpers/loader'; */
 
 refs.categoryListElem.addEventListener('click', selectedCategory);
 function selectedCategory(e) {
@@ -14,8 +13,6 @@ function selectedCategory(e) {
   const categoryName = e.target;
   categoryName.classList.add('active');
   if (categoryName.textContent === 'ALL CATEGORIES') {
-    //use localstorage for saving active item
-    // виводимо лоадер
     getTopBooksData();
   } else {
     getCategoryBooks({ category: categoryName.textContent });
@@ -29,14 +26,17 @@ function categoryTemplate({ list_name, classButton = '' }) {
 //aсинхронна функція чекає на відповідь з сервера
 const getData = async () => {
   //run loading написати загрузку
-
-  // чекаємо на дані
-  const cat = await getDataBooks('category-list');
-  cat.unshift({ list_name: 'ALL CATEGORIES', classButton: 'active' });
-  // малюємо дані на сторінці
-  refs.categoryListElem.insertAdjacentHTML(
-    'beforeend',
-    renderMarkup(categoryTemplate, cat)
-  );
+  try {
+    // чекаємо на дані
+    const cat = await getDataBooks('category-list');
+    cat.unshift({ list_name: 'ALL CATEGORIES', classButton: 'active' });
+    // малюємо дані на сторінці
+    refs.categoryListElem.insertAdjacentHTML(
+      'beforeend',
+      renderMarkup(categoryTemplate, cat)
+    );
+  } catch (err) {
+    console.error(err);
+  }
 };
 getData();
