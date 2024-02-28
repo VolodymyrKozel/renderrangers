@@ -5,8 +5,7 @@
 
 .menu-box {
   position: fixed;
-  top: 0;
-  left: 0;
+  top: 62px;
   z-index: 99;
   width: 375px;
   background: radial-gradient(189% 190% at 60% -24%,
