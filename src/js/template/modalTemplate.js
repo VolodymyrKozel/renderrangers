@@ -16,7 +16,7 @@ export default function modalTemplate({
   <section class="modalmenu">
       <button type="button" id="modal-close-id" class="close-button modal-close-button" width="28" height="28">
       <svg class="close-icon" width="24" height="24">
-        <use src="./img/icons/icons.svg#icon-x-close"></use>
+        <use src="./img/icons/icons.svg#icon-close"></use>
       </svg>
     </button>
   <div class="modal-container">

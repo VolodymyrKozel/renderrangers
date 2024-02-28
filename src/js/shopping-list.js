@@ -1,7 +1,7 @@
-import { getDataBooks } from "./Api/uBooksApi";
-import LocalStorage from "./helpers/localStorageHelper";
-import renderMarkup from "./helpers/renderMarkup";
-import { refs } from "./refs";
+import { getDataBooks } from './Api/uBooksApi';
+import LocalStorage from './helpers/localStorageHelper';
+import renderMarkup from './helpers/renderMarkup';
+import { refs } from './refs';
 
 // async function getBookById(id) {
 //   const data = await getDataBooks(id);
@@ -10,7 +10,7 @@ import { refs } from "./refs";
 //   books.push(data);
 //   LocalStorage.set('cart', books);
 // }
-  
+
 // getBookById('643282b1e85766588626a0dc');
 // getBookById('643282b1e85766588626a0ae');
 
@@ -69,7 +69,7 @@ function murkupLinks(buy_links) {
                     <img src="./img/apple-1x.png" alt="Apple-books" class="apple-books-image">
                 </a>
               </li>
-          </ul>`
+          </ul>`;
 }
 
 function renderItem() {
@@ -84,5 +84,5 @@ function renderItem() {
   const books = renderMarkup(templateList, data);
   refs.shoppingListMain.innerHTML = books;
 }
- 
+
 renderItem();
