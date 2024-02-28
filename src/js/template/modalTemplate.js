@@ -15,8 +15,8 @@ export default function modalTemplate({
   return `
   <section class="modalmenu">
       <button type="button" id="modal-close-id" class="close-button modal-close-button" width="28" height="28">
-      <svg class="close-icon" width="24" height="24">
-        <use src="./img/icons/icons.svg#icon-x-close"></use>
+      <svg class="close-icon" width="12" height="12">
+        <use href="./img/icons/icons.svg#icon-x-close"></use>
       </svg>
     </button>
   <div class="modal-container">
@@ -26,14 +26,14 @@ export default function modalTemplate({
       <p class="modal-author">${author}</p>
       <p class="description">${description}</p>
         <ul class="buy-links-list">
-      ${renderMarkup(buyLinksTemplate, buy_links.slice(0, 2))}
+      ${renderMarkup(buyLinksTemplate, buy_links.slice(0, 2).reverse())}
         </ul>       
     </div>
   </div>
    <button class="modal-list-button" type="button" id="modal-list-button-id" data-role="add" data-id="${_id}">
       add to shopping list
     </button>
-    <p class="cart_info visually-hidden"></p>
+    <p class="cart-info visually-hidden"></p>
     </section>
 `;
 }

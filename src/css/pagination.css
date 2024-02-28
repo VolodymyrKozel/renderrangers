@@ -1,24 +1,86 @@
 .tui-pagination {
-  gap: 5px;
   display: flex;
   justify-content: center;
-  height: 38px;
-  margin: 14px 0 12px;
-  line-height: normal;
-  text-align: center;
-  font-size: 0;
+  gap: 8px;
+ 
+}
+.tui-page-btn:not(:last-child) {
+  /* margin-right: 5px; */
+}
+@media screen and (min-width: 768px) {
+  .tui-page-btn:not(:last-child) {
+    /* margin-right: 10px; */
+  }
+}
+.tui-first + .tui-prev {
+  /* margin-right: 14px; */
+}
+@media screen and (min-width: 768px) {
+  .tui-first + .tui-prev {
+    /* margin-right: 20px; */
+  }
+}
+.tui-pagination .tui-first-child.tui-is-selected {
+  border: 2px solid var(--black);
 }
 
-.tui-page-button {
-  padding: 8px;
+
+.tui-pagination .tui-page-btn {
   border-radius: 50%;
-  border: 1px solid var(--black);
-  width: 38px;
   height: 38px;
-  display: inline-block;
-  position: relative;
-  margin-left: 0;
-  color: var(--black);
-  font-size: 12px;
-  vertical-align: middle;
+  width: 38px;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid var(--black);
+  font-weight: 700;
+  font-size: 18px;
+}
+
+@media screen and (min-width: 768px) {
+  .tui-pagination .tui-page-btn {
+    height: 44px;
+    width: 44px;
+  }
+}
+
+.tui-pagination .tui-ico-next,
+.tui-pagination .tui-ico-last {
+  color: #000000;
+}
+
+.tui-pagination .tui-first,
+.tui-pagination .tui-first + .tui-prev {
+  background-color: var(--black);
+}
+
+.tui-pagination .tui-next,
+.tui-pagination .tui-last {
+  background-color: var(--yellow);
+  border: 1px solid var(--black);
+}
+
+.tui-page-btn.tui-is-selected {
+  background-color: var(--black);
+  color: var(--white);
+  border: 2px solid var(--black);
+}
+.tui-pagination .tui-first + .tui-prev:hover{
+  background-color: var(--white);
+}
+.tui-pagination .tui-next + .tui-last,
+.tui-pagination .tui-first + .tui-prev{
+  border-left: 1px solid var(--black); 
+}
+
+/* .tui-pagination .tui-ico-first + .tui-ico-prev {
+  filter: invert(100%) grayscale(100%);
+} */
+
+.tui-page-btn.tui-is-selected.tui-last-child{
+  border-right: 2px solid var(--black);
+}
+.tui-pagination{
+  margin: 0 auto;
 }

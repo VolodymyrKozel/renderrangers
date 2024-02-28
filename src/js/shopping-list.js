@@ -1,6 +1,10 @@
-import LocalStorage from "./helpers/localStorageHelper";
-import renderMarkup from "./helpers/renderMarkup";
-import { refs } from "./refs";
+import './header';
+import './pagination';
+import { getDataBooks } from './Api/uBooksApi';
+import LocalStorage from './helpers/localStorageHelper';
+import renderMarkup from './helpers/renderMarkup';
+import { refs } from './refs';
+const storeName = 'cart';
 
 function templateList({
   _id,
@@ -11,7 +15,7 @@ function templateList({
   description,
   buy_links,
 }) {
-  return `<li class="shopping-item" id="${_id}">
+  return `<li class="shopping-item" data-id="${_id}">
             <img
               class="shopping-img"
               src="${book_image}"
@@ -27,7 +31,7 @@ function templateList({
                 </div>
                 <button
                   class="delete-shopping-item-btn"
-                  data-id="${_id}"
+                  
                 >
                   <svg class="trash-btn-icon" height="16" width="16">
                     <use href="../img/icons/icons.svg#icon-trash"></use>
@@ -57,7 +61,7 @@ function murkupLinks(buy_links) {
                     <img src="../img/apple-1x.png" srcset="../img/apple-2x.png 2x" alt="Apple-books" class="apple-books-image">
                 </a>
               </li>
-          </ul>`
+          </ul>`;
 }
 
 function renderItem() {
@@ -94,5 +98,3 @@ function isDeleteBtnClick(e) {
       removeItem(itemId);
   }
 }
-
-refs.shoppingListMain.addEventListener('click', isDeleteBtnClick);

@@ -49,3 +49,24 @@ img {
   clip-path: inset(50%);
   overflow: hidden;
 }
+
+.cart-info {
+  color: rgba(17, 17, 17, 0.5);
+  text-align: center;
+  letter-spacing: -0.4px;
+  width: 242px;
+  height: 36px;
+  margin: 0 auto;
+  margin-top: 8px;
+  font-size: 10px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 12px;
+}
+@media screen and (min-width: 768px) {
+  .cart-info {
+    width: 324px;
+    font-size: 12px;
+    line-height: 1.16;
+  }
+}
