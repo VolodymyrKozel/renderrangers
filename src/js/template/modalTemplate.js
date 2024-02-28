@@ -33,7 +33,7 @@ export default function modalTemplate({
    <button class="modal-list-button" type="button" id="modal-list-button-id" data-role="add" data-id="${_id}">
       add to shopping list
     </button>
-    <p class="cart_info visually-hidden"></p>
+    <p class="cart-info visually-hidden"></p>
     </section>
 `;
 }

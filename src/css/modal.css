@@ -10,7 +10,6 @@
 
 .modalmenu {
   width: 335px;
-  height: 762px;
   position: absolute;
   top: 50%;
   left: 50%;
@@ -171,7 +170,6 @@ body.dark-theme .modal-list-button {
 @media screen and (min-width: 768px) {
   .modalmenu {
     width: 579px;
-    height: 465px;
     padding: 40px;
   }
 
