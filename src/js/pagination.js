@@ -12,11 +12,11 @@ if (window.innerWidth >= 768) {
   itemsPerPage = 3;
 }
 
-const shoppingList = localStorage.getItem('shoppingList');
+const shoppingList = localStorage.getItem('cart');
 console.log(shoppingList);
-const listObj = JSON.parse(shoppingList);
+const shoppingListArr = JSON.parse(shoppingList);
 
-const shoppingListArr = Object.keys(listObj);
+// const shoppingListArr = Object.keys(listObj);
 console.log(shoppingListArr);
 
 const options = {
@@ -41,5 +41,10 @@ export const pagination = new Pagination(pagContainer, options);
 //     )
 //   );
 // });
+
+pagination.on('afterMove', event => {
+  const currentPage = event.page;
+  console.log(currentPage);
+});
 
 pagination.movePageTo(1);
