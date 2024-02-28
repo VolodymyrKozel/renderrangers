@@ -26,7 +26,7 @@ export default function modalTemplate({
       <p class="modal-author">${author}</p>
       <p class="description">${description}</p>
         <ul class="buy-links-list">
-      ${renderMarkup(buyLinksTemplate, buy_links.slice(0, 2))}
+      ${renderMarkup(buyLinksTemplate, buy_links.slice(0, 2).reverse())}
         </ul>       
     </div>
   </div>
