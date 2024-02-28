@@ -53,13 +53,9 @@ body.dark-theme .header-burger span {
   background-color: var(--white);
 }
 
-/* .header {
-  position: fixed;
+.header {
   width: 100%;
-  top: 0;
-  left: 0;
-  z-index: 50;
-} */
+}
 
 /* .header::before {
   content: '';
@@ -71,6 +67,9 @@ body.dark-theme .header-burger span {
   z-index: 2;
 } */
 .header-container {
+  width: 100%;
+  z-index: 99;
+  background-color: var(--white);
   display: flex;
   padding-top: 18px;
   padding-bottom: 18px;
@@ -178,6 +177,11 @@ body.dark-theme .header-burger span {
 }
 
 @media (max-width: 767px) {
+
+  .header {
+    position: fixed;
+  }
+  
   .header-burger {
     display: block;
     position: relative;
