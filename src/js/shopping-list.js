@@ -16,8 +16,9 @@ function renderItem() {
   } else {
     refs.shoppingText.style.marginBottom = '40px';
     refs.shoppingEmpty.classList.add('hidden');
-    const books = renderMarkup(shoppingListTemplate, data);
-    refs.shoppingListMain.innerHTML = books;
+    createPagination(refs.shoppingListMain, data);
+    /*     const books = renderMarkup(shoppingListTemplate, data);
+    refs.shoppingListMain.innerHTML = books; */
     const listOfBook = document.querySelector('.js-shopping-main');
     listOfBook.addEventListener('click', handleDeleteClick);
   }
@@ -35,6 +36,7 @@ function handleDeleteClick(e) {
       ({ _id }) => _id !== item.dataset.id
     );
     localStorage.setItem(storeName, JSON.stringify(filteredBooks));
+    createPagination(refs.shoppingListMain, filteredBooks, 'uptate');
     item.remove();
   }
 }

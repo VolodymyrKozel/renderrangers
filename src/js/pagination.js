@@ -1,8 +1,9 @@
 import Pagination from 'tui-pagination';
 import 'tui-pagination/dist/tui-pagination.css';
 import '../css/pagination.css';
-
-export function createPagination(totalItems) {
+import renderMarkup from './helpers/renderMarkup';
+import shoppingListTemplate from './template/shoppingListTemplate';
+export function createPagination(containerCart, currentBooks, update) {
   // контейнер для пагінації
   const pagContainer = document.querySelector('#tui-pagination-container');
 
@@ -13,24 +14,28 @@ export function createPagination(totalItems) {
     visiblePages = 3;
     itemsPerPage = 3;
   }
-
   // налаштування для ширини екрану
   const options = {
-    totalItems,
+    totalItems: currentBooks.length,
     itemsPerPage,
     visiblePages,
     centerAlign: true,
   };
-
+  /* if (currentBooks.length > itemsPerPage)  */
   // створення пагінації
   const pagination = new Pagination(pagContainer, options);
 
   // слухач переходу по сторінках
   pagination.on('afterMove', event => {
     const currentPage = event.page;
-    onPageChange(currentPage);
+    const booksOnPage = currentBooks.slice(
+      (currentPage - 1) * itemsPerPage,
+      currentPage * itemsPerPage
+    );
+    const books = renderMarkup(shoppingListTemplate, booksOnPage);
+    containerCart.innerHTML = books;
   });
-
+  pagination.movePageTo(pagination.getCurrentPage());
   return pagination;
 }
 
@@ -40,4 +45,4 @@ function onPageChange(totalItems) {
 }
 
 // тест
-createPagination(20);
+/* createPagination(20); */
