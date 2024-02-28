@@ -84,25 +84,26 @@ function renderItem() {
   refs.shoppingEmpty.classList.add('hidden');
   const books = renderMarkup(templateList, data);
   refs.shoppingListMain.innerHTML = books;
-  const listOfBook = document.querySelector('.shop-link-list');
-  console.log(listOfBook); //li
-  listOfBook.addEventListener('click', handleDelete);
+  const listOfBook = document.querySelector('.js-shopping-main');
+  console.log(listOfBook);
+  listOfBook.addEventListener('click', handleDeleteClick);
 }
 
-function handleDelete(e) {
-  /*  const id = e.currentTarget.closest('LI').dataset.id; */
-  console.log(e.currentTarget); //li
-  /*   e.target.tagName === 'BUTTON' ||
-  e.target.tagName === 'svg' ||
-  e.target.tagName === 'use'
-    ? deleteItem(id, e.currentTarget)
-    : null; */
-}
-function deleteItem(id, item) {
-  /*   const booksInCart = LocalStorage.get(storeName);
-  const filteredBooks = booksInCart.filter(({ _id }) => _id !== id);
-  localStorage.setItem(storeName, JSON.stringify(filteredBooks));
-  item.remove(); */
+function handleDeleteClick(e) {
+  /*  const id = e.currentTarget.closest('.shopping-item'); */
+  if (
+    e.target.tagName === 'BUTTON' ||
+    e.target.tagName === 'svg' ||
+    e.target.tagName === 'use'
+  ) {
+    const item = e.target.closest('.shopping-item');
+    const booksInCart = LocalStorage.get(storeName);
+    const filteredBooks = booksInCart.filter(
+      ({ _id }) => _id !== item.dataset.id
+    );
+    localStorage.setItem(storeName, JSON.stringify(filteredBooks));
+    item.remove();
+  }
 }
 
 renderItem();
