@@ -1,24 +1,46 @@
-
 import Pagination from 'tui-pagination';
-// import 'tui-pagination/dist/tui-pagination.css';
+import 'tui-pagination/dist/tui-pagination.css';
+import '../css/pagination.css';
 
-const pagContainer = document.querySelector('#pagination');
+import { getBookById } from './modal';
+
+const pagContainer = document.querySelector('#tui-pagination-container');
+
+let visiblePages = 2;
+let itemsPerPage = 4;
+if (window.innerWidth >= 768) {
+  visiblePages = 3;
+  itemsPerPage = 3;
+}
+
+// const shoppingList = localStorage.getItem('shoppingList');
+// console.log(shoppingList);
+// const listObj = JSON.parse(shoppingList);
+
+// const shoppingListArr = Object.keys(listObj);
+// console.log(shoppingListArr);
+
 const options = {
-  itemsPerPage: 4,
-  visiblePages: 2,
-  page: 1,
-  centerAlign: true,
-  firstItemClassName: 'tui-first-child',
-  lastItemClassName: 'tui-last-child',
-  template: {
-    page: '<a href="#" class="tui-page-button">{{page}}</a>',
-    currentPage:
-      '<strong class="tui-page-button tui-is-selected">{{page}}</strong>',
-    moreButton:
-      '<a href="#" class="tui-page-button tui-{{type}}-is-ellip">' +
-      '<span class="tui-ico-ellip">...</span>' +
-      '</a>',
-  },
+  // totalItems: shoppingListArr.length,
+  itemsPerPage,
+  visiblePages,
 };
 
 export const pagination = new Pagination(pagContainer, options);
+
+// pagination.on('beforeMove', event => {
+//   if (shoppingListArr.length / itemsPerPage <= 1) {
+//     return;
+//   }
+
+//   const currentPage = event.page;
+
+//   getBookById(
+//     shoppingListArr.slice(
+//       (currentPage - 1) * itemsPerPage,
+//       currentPage * itemsPerPage
+//     )
+//   );
+// });
+
+pagination.movePageTo(1)
