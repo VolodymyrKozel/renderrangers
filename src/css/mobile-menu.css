@@ -3,10 +3,6 @@
   position: relative;
 }
 
-.mobile-menu-container:hover .menu-box {
-  display: block;
-}
-
 .menu-box {
   position: fixed;
   top: 0;
@@ -14,22 +10,25 @@
   z-index: 99;
   width: 375px;
   height: 100vh;
-  background: radial-gradient(189% 190% at 60% -24%, rgb(79, 46, 232) 18%, rgb(255, 255, 255) 100%);
+  background: radial-gradient(
+    189% 190% at 60% -24%,
+    rgb(79, 46, 232) 18%,
+    rgb(255, 255, 255) 100%
+  );
   display: flex;
   align-items: center;
   flex-wrap: wrap;
   justify-content: center;
-
 }
 
 .btn-home {
   display: flex;
   justify-content: center;
   align-items: center;
-  background: #EAC645;
+  background: #eac645;
   font-style: normal;
 
-  font-family: "DM Sans", sans-serif;
+  font-family: 'DM Sans', sans-serif;
   font-weight: 700;
   font-size: 14px;
   line-height: 1.28571;
@@ -51,7 +50,7 @@
 }
 
 .link-page-2 {
-  font-family: "DM Sans", sans-serif;
+  font-family: 'DM Sans', sans-serif;
   font-weight: 500;
   font-size: 14px;
   line-height: 1.28571;
@@ -82,7 +81,7 @@
   display: flex;
 }
 
-@media(min-width: 768px) {
+@media (min-width: 768px) {
   .open-menu {
     display: none;
   }
