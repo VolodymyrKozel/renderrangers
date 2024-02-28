@@ -2,7 +2,7 @@ import{r as I,a as A}from"./assets/header-d71c1a5e.js";import{a as C,S as h,N as
   <section class="modalmenu">
       <button type="button" id="modal-close-id" class="close-button modal-close-button" width="28" height="28">
       <svg class="close-icon" width="24" height="24">
-        <use src="./img/icons/icons.svg#icon-close"></use>
+        <use href="./img/icons/icons.svg#icon-close"></use>
       </svg>
     </button>
   <div class="modal-container">
