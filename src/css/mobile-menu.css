@@ -6,11 +6,15 @@
 .menu-box {
   position: fixed;
   top: 62px;
+  left: 50%;
+  transform: translateX(-50%);
   z-index: 99;
   width: 375px;
-  background: radial-gradient(189% 190% at 60% -24%,
-      rgb(79, 46, 232) 18%,
-      rgb(255, 255, 255) 100%);
+  background: radial-gradient(
+    189% 190% at 60% -24%,
+    rgb(79, 46, 232) 18%,
+    rgb(255, 255, 255) 100%
+  );
   display: flex;
   align-items: center;
   flex-wrap: wrap;
