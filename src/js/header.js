@@ -47,5 +47,5 @@ const mobilMenu = document.querySelector('.mobile-menu-container');
 
 burgerMenuBtn.addEventListener('click', function () {
   mobilMenu.classList.toggle('open-menu');
+  burgerMenuBtn.classList.toggle('open-menu');
 });
-
