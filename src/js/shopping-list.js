@@ -90,7 +90,6 @@ function renderItem() {
 }
 
 function handleDeleteClick(e) {
-  /*  const id = e.currentTarget.closest('.shopping-item'); */
   if (
     e.target.tagName === 'BUTTON' ||
     e.target.tagName === 'svg' ||
