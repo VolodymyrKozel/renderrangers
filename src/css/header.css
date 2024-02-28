@@ -55,6 +55,7 @@ body.dark-theme .header-burger span {
 
 .header {
   width: 100%;
+  background: (var(--white), 0.9);
 }
 
 /* .header::before {
@@ -181,7 +182,7 @@ body.dark-theme .header-burger span {
   .header {
     position: fixed;
   }
-  
+
   .header-burger {
     display: block;
     position: relative;

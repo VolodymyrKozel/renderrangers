@@ -46,7 +46,6 @@
 .btn-home:hover,
 .btn-home:focus {
   background-color: #eac645;
-  color: #111;
   font-weight: 700;
   box-shadow: 0 4px 18px 0 rgba(0, 0, 0, 0.15);
 }
@@ -75,9 +74,6 @@
   font-weight: 700;
   box-shadow: 0 4px 18px 0 rgba(0, 0, 0, 0.15);
   border-radius: 36px;
-  color: #111;
-  fill: #111;
-  
 }
 
 .bag-icons {
