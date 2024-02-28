@@ -1,8 +1,9 @@
+import './header';
 import { getDataBooks } from './Api/uBooksApi';
 import LocalStorage from './helpers/localStorageHelper';
 import renderMarkup from './helpers/renderMarkup';
 import { refs } from './refs';
-
+const storeName = 'cart';
 // async function getBookById(id) {
 //   const data = await getDataBooks(id);
 //   const books = [];
@@ -23,7 +24,7 @@ function templateList({
   description,
   buy_links,
 }) {
-  return `<li class="shopping-item">
+  return `<li class="shopping-item" data-id="${_id}">
             <img
               class="shopping-img"
               src="${book_image}"
@@ -39,7 +40,7 @@ function templateList({
                 </div>
                 <button
                   class="delete-shopping-item-btn"
-                  data-id="${_id}"
+                  
                 >
                   <svg class="trash-btn-icon" height="16" width="16">
                     <use href="./img/icons/icons.svg#icon-trash"></use>
@@ -74,7 +75,7 @@ function murkupLinks(buy_links) {
 
 function renderItem() {
   refs.shoppingListMain.innerHTML = '';
-  let data = LocalStorage.get('cart');
+  let data = LocalStorage.get(storeName);
 
   const isStorageEmpty = !data || !data.length;
   if (isStorageEmpty) return;
@@ -83,6 +84,25 @@ function renderItem() {
   refs.shoppingEmpty.classList.add('hidden');
   const books = renderMarkup(templateList, data);
   refs.shoppingListMain.innerHTML = books;
+  const listOfBook = document.querySelector('.shop-link-list');
+  console.log(listOfBook); //li
+  listOfBook.addEventListener('click', handleDelete);
+}
+
+function handleDelete(e) {
+  /*  const id = e.currentTarget.closest('LI').dataset.id; */
+  console.log(e.currentTarget); //li
+  /*   e.target.tagName === 'BUTTON' ||
+  e.target.tagName === 'svg' ||
+  e.target.tagName === 'use'
+    ? deleteItem(id, e.currentTarget)
+    : null; */
+}
+function deleteItem(id, item) {
+  /*   const booksInCart = LocalStorage.get(storeName);
+  const filteredBooks = booksInCart.filter(({ _id }) => _id !== id);
+  localStorage.setItem(storeName, JSON.stringify(filteredBooks));
+  item.remove(); */
 }
 
 renderItem();
