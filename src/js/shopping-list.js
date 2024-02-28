@@ -80,9 +80,9 @@ function removeItem(itemId) {
   let data = LocalStorage.get('cart');
   const itemIndex = data.findIndex(item => item._id === itemId);
   if (itemIndex !== -1) {
-    data.splice(itemIndex, 1);
-    LocalStorage.set('cart', data);
-    renderItem();
+      data.splice(itemIndex, 1);
+      LocalStorage.set('cart', data);
+      renderItem();
   }
 }
 
@@ -90,8 +90,8 @@ function isDeleteBtnClick(e) {
   const isDeleteBtn = e.target.classList.contains('delete-shopping-item-btn') ||
     e.target.closest('.trash-btn-icon');
   if (isDeleteBtn) {
-    const itemId = e.target.closest('.shopping-item').id;
-    removeItem(itemId);
+      const itemId = e.target.closest('.shopping-item').id;
+      removeItem(itemId);
   }
 }
 
