@@ -92,6 +92,10 @@ margin: 0 auto;
     border-radius: 100%;
     border: none;
     background-color: #4f2ee8;
+    transition: filter 0.2s ease-in-out;
+}
+.delete-shopping-item-btn:hover {
+    filter: drop-shadow(0px 3px 3px rgba(0, 0, 0, 0.35));
 }
 
 .trash-btn-icon {
@@ -148,20 +152,22 @@ margin: 0 auto;
     width: 16px;
     height: 16px;
     mix-blend-mode: luminosity;
+    transition: filter 0.2s ease-in-out;
 }
 
 .apple-books-image:hover {
-    box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.15);
+    filter: drop-shadow(0px 3px 3px rgba(0, 0, 0, 0.35));
 }
 
 .amazon-image {
     width: 32px;
     height: 11px;
     mix-blend-mode: luminosity;
+    transition: filter 0.2s ease-in-out;
 }
 
 .amazon-image:hover {
-    box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.15);
+    filter: drop-shadow(0px 3px 3px rgba(0, 0, 0, 0.35));
 }
 
 @media screen and (min-width: 768px) {

@@ -1,18 +1,6 @@
-import { getDataBooks } from "./Api/uBooksApi";
 import LocalStorage from "./helpers/localStorageHelper";
 import renderMarkup from "./helpers/renderMarkup";
 import { refs } from "./refs";
-
-// async function getBookById(id) {
-//   const data = await getDataBooks(id);
-//   const books = [];
-//   LocalStorage.has('cart') ? books.push(LocalStorage.get('cart')) : LocalStorage.set('cart', books);
-//   books.push(data);
-//   LocalStorage.set('cart', books);
-// }
-  
-// getBookById('643282b1e85766588626a0dc');
-// getBookById('643282b1e85766588626a0ae');
 
 function templateList({
   _id,
@@ -23,7 +11,7 @@ function templateList({
   description,
   buy_links,
 }) {
-  return `<li class="shopping-item">
+  return `<li class="shopping-item" id="${_id}">
             <img
               class="shopping-img"
               src="${book_image}"
@@ -42,7 +30,7 @@ function templateList({
                   data-id="${_id}"
                 >
                   <svg class="trash-btn-icon" height="16" width="16">
-                    <use href="./img/icons/icons.svg#icon-trash"></use>
+                    <use href="../img/icons/icons.svg#icon-trash"></use>
                   </svg>
                 </button>
               </div>
@@ -61,12 +49,12 @@ function murkupLinks(buy_links) {
   return `<ul class="shop-link-list">
               <li class=""shop-link-item>
                 <a class="shop-link-amazon" href="${amazon}" target="_blank">
-                   <img src="./img/amazon.png" alt="Amazon" class="amazon-image">
+                   <img src="../img/amazon-1x.png" srcset="../img/amazon-2x.png 2x" alt="Amazon" class="amazon-image">
                 </a>
               </li>
               <li class=""shop-link-item>
                 <a class="shop-link-amazon" href="${appleBook}" target="_blank">
-                    <img src="./img/apple-1x.png" alt="Apple-books" class="apple-books-image">
+                    <img src="../img/apple-1x.png" srcset="../img/apple-2x.png 2x" alt="Apple-books" class="apple-books-image">
                 </a>
               </li>
           </ul>`
@@ -86,3 +74,24 @@ function renderItem() {
 }
  
 renderItem();
+
+function removeItem(itemId) {
+  let data = LocalStorage.get('cart');
+  const itemIndex = data.findIndex(item => item._id === itemId);
+  if (itemIndex !== -1) {
+    data.splice(itemIndex, 1);
+    LocalStorage.set('cart', data);
+    renderItem();
+  }
+}
+
+function isDeleteBtnClick(e) {
+  const isDeleteBtn = e.target.classList.contains('delete-shopping-item-btn') ||
+    e.target.closest('.trash-btn-icon');
+  if (isDeleteBtn) {
+    const itemId = e.target.closest('.shopping-item').id;
+    removeItem(itemId);
+  }
+}
+
+refs.shoppingListMain.addEventListener('click', isDeleteBtnClick);
