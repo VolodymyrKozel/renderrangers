@@ -25,7 +25,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background: #eac645;
+  background-color: #eac645;
   font-style: normal;
 
   font-family: 'DM Sans', sans-serif;
@@ -44,7 +44,7 @@
 
 .btn-home:hover,
 .btn-home:focus {
-  background-color: #14ad3a;
+  background-color: #eac645;
   font-weight: 700;
   box-shadow: 0 4px 18px 0 rgba(0, 0, 0, 0.15);
 }
