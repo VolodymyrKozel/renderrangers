@@ -10,13 +10,16 @@ function renderItem() {
   refs.shoppingListMain.innerHTML = '';
   const data = LocalStorage.get(storeName);
   const isStorageEmpty = !data || !data.length;
-  if (isStorageEmpty) return;
-  refs.shoppingText.style.marginBottom = '40px';
-  refs.shoppingEmpty.classList.add('hidden');
-  const books = renderMarkup(shoppingListTemplate, data);
-  refs.shoppingListMain.innerHTML = books;
-  const listOfBook = document.querySelector('.js-shopping-main');
-  listOfBook.addEventListener('click', handleDeleteClick);
+  if (isStorageEmpty) {
+    refs.shoppingEmpty.classList.remove('hidden');
+  } else {
+    refs.shoppingText.style.marginBottom = '40px';
+    refs.shoppingEmpty.classList.add('hidden');
+    const books = renderMarkup(shoppingListTemplate, data);
+    refs.shoppingListMain.innerHTML = books;
+    const listOfBook = document.querySelector('.js-shopping-main');
+    listOfBook.addEventListener('click', handleDeleteClick);
+  }
 }
 
 function handleDeleteClick(e) {
