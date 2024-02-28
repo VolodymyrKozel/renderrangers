@@ -20,12 +20,13 @@
   flex-wrap: wrap;
   justify-content: center;
 }
-
+.active {
+  background-color: #eac645;
+}
 .btn-mobile-menu {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #eac645;
   font-weight: 500;
   line-height: 1.28571;
   letter-spacing: -0.04em;
