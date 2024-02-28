@@ -26,14 +26,14 @@ export default function modalTemplate({
       <p class="modal-author">${author}</p>
       <p class="description">${description}</p>
         <ul class="buy-links-list">
-      ${renderMarkup(buyLinksTemplate, buy_links.slice(0, 2))}
+      ${renderMarkup(buyLinksTemplate, buy_links.slice(0, 2).reverse())}
         </ul>       
     </div>
   </div>
    <button class="modal-list-button" type="button" id="modal-list-button-id" data-role="add" data-id="${_id}">
       add to shopping list
     </button>
-    <p class="cart_info visually-hidden"></p>
+    <p class="cart-info visually-hidden"></p>
     </section>
 `;
 }

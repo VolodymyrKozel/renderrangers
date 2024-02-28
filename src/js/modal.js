@@ -18,7 +18,7 @@ function createModal(book) {
   modalBackdrop.innerHTML = '';
   modalBackdrop.insertAdjacentHTML('afterbegin', modalTemplate(book));
   const btn = document.querySelector('.modal-list-button');
-  const btnInfo = document.querySelector('.cart_info');
+  const btnInfo = document.querySelector('.cart-info');
   btn.addEventListener('click', () => {
     const booksInCart = JSON.parse(localStorage.getItem(storeName)) || [];
 
