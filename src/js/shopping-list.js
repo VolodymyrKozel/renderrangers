@@ -2,8 +2,6 @@ import LocalStorage from "./helpers/localStorageHelper";
 import renderMarkup from "./helpers/renderMarkup";
 import { refs } from "./refs";
 
-refs.shoppingListMain.addEventListener('click', isDeleteBtnClick);
-
 function templateList({
   _id,
   list_name,
@@ -97,3 +95,4 @@ function isDeleteBtnClick(e) {
   }
 }
 
+refs.shoppingListMain.addEventListener('click', isDeleteBtnClick);
