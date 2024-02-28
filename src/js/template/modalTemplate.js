@@ -31,21 +31,22 @@ export default function modalTemplate({
     </div>
   </div>
    <button class="modal-list-button" type="button" id="modal-list-button-id" data-role="add" data-id="${_id}">
-      add to shopping list'
+      add to shopping list
     </button>
+    <p class="cart_info visually-hidden"></p>
     </section>
 `;
 }
 
-  function buyLinksTemplate({ name, url }) {
+function buyLinksTemplate({ name, url }) {
   return `
     <li class="buy-links-item">
     <a target="_blank" rel="noopener noreferrer" aria-label="${name}" href=${url}>
-      <img src="${name
-        .split(' ')[0]
-        .toLowerCase() === 'amazon' ? amazon : apple}"  srcset="${name
-    .split(' ')[0]
-    .toLowerCase() === 'amazon' ? amazon2x : apple2x} 2x" alt="${name}" class="platform-image">
+      <img src="${
+        name.split(' ')[0].toLowerCase() === 'amazon' ? amazon : apple
+      }"  srcset="${
+    name.split(' ')[0].toLowerCase() === 'amazon' ? amazon2x : apple2x
+  } 2x" alt="${name}" class="platform-image">
 </a>
 </li>
 `;
