@@ -1,5 +1,5 @@
 import './header';
-import './helpers/pagination';
+import './pagination';
 import { getDataBooks } from './Api/uBooksApi';
 import LocalStorage from './helpers/localStorageHelper';
 import renderMarkup from './helpers/renderMarkup';
@@ -107,3 +107,9 @@ function handleDeleteClick(e) {
 }
 
 renderItem();
+
+//hide aside
+if (window.innerWidth < 1440) {
+  console.log('1440');
+  document.querySelector('.aside').style.display = 'none';
+}
