@@ -9,41 +9,42 @@
   </head>
   <body>
     <load src="partials/header.html" />
-    <aside class="aside">
-      <load src="partials/support-section.html" />
-    </aside>
-    <main>
-      <section class="container">
-        <h1 class="shopping-list-text">
-          Shopping <span class="shopping-list-color">List</span>
-        </h1>
-        <ul class="shopping-list-container js-shopping-main">
-        </ul>
-        <div id="tui-pagination-container" class="tui-pagination"></div>
-        <div class="shopping-box-empty">
-          <p class="shopping-list-container-text">
-            This page is empty, add some books <br />
-            and proceed to order.
-          </p>
-          <picture>
-            <source
-              srcset="./img/empty-mobi-1x.png"
-              width="265"
-              height="198"
-              media="(max-width: 767px)"
-            />
-            <source
-              srcset="./img/empty-1x.png"
-              width="322"
-              height="241"
-              media="(min-width: 768px)"
-            />
-            <img src="./img/empty-1x.png" alt="empty" />
-          </picture>
-        </div>
-      </section>
-      <load src="partials/category-list.html" />
-    </main>
+    <div class="container container-flex-xl">
+      <aside class="aside">
+        <load src="partials/support-section.html" />
+      </aside>
+      <main>
+        <section class="container">
+          <h1 class="shopping-list-text">
+            Shopping <span class="shopping-list-color">List</span>
+          </h1>
+          <ul class="shopping-list-container js-shopping-main"></ul>
+          <div id="tui-pagination-container" class="tui-pagination"></div>
+          <div class="shopping-box-empty">
+            <p class="shopping-list-container-text">
+              This page is empty, add some books <br />
+              and proceed to order.
+            </p>
+            <picture>
+              <source
+                srcset="./img/empty-mobi-1x.png"
+                width="265"
+                height="198"
+                media="(max-width: 767px)"
+              />
+              <source
+                srcset="./img/empty-1x.png"
+                width="322"
+                height="241"
+                media="(min-width: 768px)"
+              />
+              <img src="./img/empty-1x.png" alt="empty" />
+            </picture>
+          </div>
+        </section>
+      </main>
+    </div>
+    <load src="partials/mobile-menu.html" />
     <script type="module" src="./js/shopping-list.js"></script>
   </body>
 </html>

@@ -3,7 +3,6 @@ import modalTemplate from './template/modalTemplate';
 
 const body = document.querySelector('body');
 const modalBackdrop = document.querySelector('.backdrop');
-modalBackdrop.addEventListener('click', handleClickModal);
 const storeName = 'cart';
 
 // Open modalmenu
@@ -11,6 +10,7 @@ export async function getBookById(id) {
   const data = await getDataBooks(id);
   createModal(data);
   document.addEventListener('keydown', escapeCloseModal);
+  modalBackdrop.addEventListener('click', handleClickModal);
 }
 function createModal(book) {
   modalBackdrop.style.display = 'flex';

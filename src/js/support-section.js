@@ -32,8 +32,8 @@ function createSupportItem(item, index) {
 
   const imgEl = document.createElement('img');
   imgEl.classList.add('support-img');
-  imgEl.src = `./img/support/${img}.png`;
-  imgEl.srcset = `./img/support/${srcset}`;
+  imgEl.src = img;
+  imgEl.srcset = srcset;
   imgEl.alt = title;
 
   a.append(span, imgEl);
