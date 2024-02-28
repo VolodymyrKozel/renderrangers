@@ -7,8 +7,8 @@
     <title>Shopping List</title>
     
     <script type="module" crossorigin src="/renderrangers/commonHelpers2.js"></script>
+    <link rel="modulepreload" crossorigin href="/renderrangers/assets/header-1e610626.js">
     <link rel="modulepreload" crossorigin href="/renderrangers/assets/vendor-94a85c0e.js">
-    <link rel="modulepreload" crossorigin href="/renderrangers/assets/header-e35e4aad.js">
     <link rel="stylesheet" href="/renderrangers/assets/header-07131112.css">
     <link rel="stylesheet" href="/renderrangers/assets/vendor-bdf8c32b.css">
     <link rel="stylesheet" href="/renderrangers/assets/shopping-list-4d4e4c15.css">
@@ -70,9 +70,9 @@
         </div>
     </div>
 </header>
-        <div class="container container-flex-xl">
-          <aside class="aside">
-            <section class="support">
+    <div class="container container-flex-xl">
+      <aside class="aside">
+        <section class="support">
   <div class="support-header">
     <h3 class="support-title">Support Ukraine</h3>
     <svg class="support-triden" width="20" height="32">
@@ -99,40 +99,39 @@
   </div>
 </section>
 
-          </aside>
-    <main>
-      <section class="container">
-        <h1 class="shopping-list-text">
-          Shopping <span class="shopping-list-color">List</span>
-        </h1>
-        <ul class="shopping-list-container js-shopping-main">
+      </aside>
+      <main>
+        <section class="container">
+          <h1 class="shopping-list-text">
+            Shopping <span class="shopping-list-color">List</span>
+          </h1>
+          <ul class="shopping-list-container js-shopping-main"></ul>
           <div id="tui-pagination-container" class="tui-pagination"></div>
-        </ul>
-        <div class="shopping-box-empty">
-          <p class="shopping-list-container-text">
-            This page is empty, add some books <br />
-            and proceed to order.
-          </p>
-          <picture>
-            <source
-              srcset="/renderrangers/assets/empty-mobi-1x-e834be2d.png "
-              width="265"
-              height="198"
-              media="(max-width: 767px)"
-            />
-            <source
-              srcset="/renderrangers/assets/empty-1x-de0fe82a.png "
-              width="322"
-              height="241"
-              media="(min-width: 768px)"
-            />
-            <img src="/renderrangers/assets/empty-1x-de0fe82a.png" alt="empty" />
-          </picture>
-        </div>
-      </section>
-    </main>
-        </div>
-        <div class="container mobile-menu-container">
+          <div class="shopping-box-empty">
+            <p class="shopping-list-container-text">
+              This page is empty, add some books <br />
+              and proceed to order.
+            </p>
+            <picture>
+              <source
+                srcset="/renderrangers/assets/empty-mobi-1x-e834be2d.png "
+                width="265"
+                height="198"
+                media="(max-width: 767px)"
+              />
+              <source
+                srcset="/renderrangers/assets/empty-1x-de0fe82a.png "
+                width="322"
+                height="241"
+                media="(min-width: 768px)"
+              />
+              <img src="/renderrangers/assets/empty-1x-de0fe82a.png" alt="empty" />
+            </picture>
+          </div>
+        </section>
+      </main>
+    </div>
+    <div class="container mobile-menu-container">
   <div class="menu-box js-menu-container">
     <ul class="link-box">
       <li>
