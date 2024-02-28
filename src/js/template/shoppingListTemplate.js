@@ -1,3 +1,8 @@
+import apple from '../../img/amazon-1x.png';
+import amazon from '../../img/apple-1x.png';
+import apple2x from '../../img/amazon-2x.png';
+import amazon2x from '../../img/apple-2x.png';
+
 export default function templateList({
   _id,
   list_name,
@@ -40,17 +45,17 @@ export default function templateList({
 }
 
 function murkupLinks(buy_links) {
-  const amazon = buy_links.find(elem => elem.name === 'Amazon').url;
-  const appleBook = buy_links.find(elem => elem.name === 'Apple Books').url;
+  const amazonUrl = buy_links.find(elem => elem.name === 'Amazon').url;
+  const appleBookUrl = buy_links.find(elem => elem.name === 'Apple Books').url;
   return `<ul class="shop-link-list">
               <li class=""shop-link-item>
-                <a class="shop-link-amazon" href="${amazon}" target="_blank">
-                   <img src="../img/amazon-1x.png" srcset="../img/amazon-2x.png 2x" alt="Amazon" class="amazon-image">
+                <a class="shop-link-amazon" href="${amazonUrl}" target="_blank">
+                   <img src="${amazon}" srcset="${amazon2x} 2x" alt="Amazon" class="amazon-image">
                 </a>
               </li>
               <li class=""shop-link-item>
-                <a class="shop-link-amazon" href="${appleBook}" target="_blank">
-                    <img src="../img/apple-1x.png" srcset="../img/apple-2x.png 2x" alt="Apple-books" class="apple-books-image">
+                <a class="shop-link-amazon" href="${appleBookUrl}" target="_blank">
+                    <img src="${apple}" srcset="${apple} 2x" alt="Apple-books" class="apple-books-image">
                 </a>
               </li>
           </ul>`;
