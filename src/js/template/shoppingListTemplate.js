@@ -55,7 +55,7 @@ function murkupLinks(buy_links) {
               </li>
               <li class=""shop-link-item>
                 <a class="shop-link-amazon" href="${appleBookUrl}" target="_blank">
-                    <img src="${apple}" srcset="${apple} 2x" alt="Apple-books" class="apple-books-image">
+                    <img src="${apple}" srcset="${apple2x} 2x" alt="Apple-books" class="apple-books-image">
                 </a>
               </li>
           </ul>`;
