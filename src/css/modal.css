@@ -132,7 +132,7 @@ body.dark-theme .buy-links-item:first-child {
   transition: color 250ms ease, background-color 250ms ease;
 }
 
-.cart_info {
+.cart-info {
   text-align: center;
   padding-top: 8px;
   color: var(--heading);

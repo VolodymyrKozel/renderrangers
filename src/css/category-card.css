@@ -56,13 +56,22 @@
   white-space: nowrap;
 }
 
-@media screen and (max-width: 767.99px) {
+@media screen and (min-width: 768px) {
+  .sellers-exclude {
+    display: block;
+    display: flex;
+    gap: 40px 25px;
+    padding-bottom: 100px;
+  }
   .sellers-exclude .sellers-item {
     display: block;
   }
+  .sellers-exclude {
+    gap: 40px 24px;
+  }
 }
 
-@media screen and (max-width: 1439.99px) {
+@media screen and (min-width: 1440px) {
   .sellers-exclude .sellers-item {
     display: block;
   }
