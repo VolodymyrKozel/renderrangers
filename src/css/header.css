@@ -181,6 +181,7 @@ body.dark-theme .header-burger span {
 @media (max-width: 767px) {
   .header {
     position: fixed;
+    z-index: 999;
   }
 
   .header-burger {
