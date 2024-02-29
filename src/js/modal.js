@@ -45,7 +45,7 @@ function createModal(book) {
 }
 
 function handleClickModal(e) {
-  if (e.target.tagName === 'svg') {
+  if (e.target.tagName === 'svg' || e.target.tagName === 'use') {
     closeModal();
   }
   if (e.target.id === 'mBackdrop') {
