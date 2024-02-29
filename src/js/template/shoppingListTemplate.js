@@ -1,7 +1,7 @@
-import apple from '../../img/amazon-1x.png';
-import amazon from '../../img/apple-1x.png';
-import apple2x from '../../img/amazon-2x.png';
-import amazon2x from '../../img/apple-2x.png';
+import amazon from '../../img/amazon-1x.png';
+import apple from '../../img/apple-1x.png';
+import amazon2x from '../../img/amazon-2x.png';
+import apple2x from '../../img/apple-2x.png';
 
 export default function templateList({
   _id,

@@ -1,11 +1,14 @@
 import './header';
 import './pagination';
+import './support-section';
 import LocalStorage from './helpers/localStorageHelper';
 import renderMarkup from './helpers/renderMarkup';
 import shoppingListTemplate from './template/shoppingListTemplate';
 import { refs } from './refs';
 import { createPagination } from './pagination';
 const storeName = 'cart';
+const data = LocalStorage.get(storeName);
+let pag;
 
 function renderItem() {
   refs.shoppingListMain.innerHTML = '';
@@ -16,7 +19,8 @@ function renderItem() {
   } else {
     refs.shoppingText.style.marginBottom = '40px';
     refs.shoppingEmpty.classList.add('hidden');
-    createPagination(refs.shoppingListMain, data);
+    pag = createPagination(refs.shoppingListMain, data);
+    pag.movePageTo(pag.getCurrentPage());
     /*     const books = renderMarkup(shoppingListTemplate, data);
     refs.shoppingListMain.innerHTML = books; */
     const listOfBook = document.querySelector('.js-shopping-main');
@@ -36,14 +40,22 @@ function handleDeleteClick(e) {
       ({ _id }) => _id !== item.dataset.id
     );
     localStorage.setItem(storeName, JSON.stringify(filteredBooks));
-    createPagination(refs.shoppingListMain, filteredBooks, 'uptate');
+    /*    let currentPage = pag.getCurrentPage();
+    pag.on(filteredBooks.length);
+
+    pag.movePageTo(currentPage); */
+    if (filteredBooks.length / pag._options.itemsPerPage <= 1) {
+      pag._view._containerElement.style.display = 'none';
+      let currentPage = pag.getCurrentPage();
+      pag.reset(filteredBooks.length);
+      pag.movePageTo(currentPage);
+    }
     item.remove();
   }
 }
 renderItem();
 //hide aside
 if (window.innerWidth < 1440) {
-  console.log('1440');
   document.querySelector('.aside').style.display = 'none';
 }
 

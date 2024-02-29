@@ -28,12 +28,14 @@ export function createPagination(containerCart, currentBooks, update) {
   // слухач переходу по сторінках
   pagination.on('afterMove', event => {
     const currentPage = event.page;
+    const prevPage = currentPage;
     const booksOnPage = currentBooks.slice(
       (currentPage - 1) * itemsPerPage,
       currentPage * itemsPerPage
     );
     const books = renderMarkup(shoppingListTemplate, booksOnPage);
     containerCart.innerHTML = books;
+    pagination.prevPage = prevPage;
   });
   pagination.movePageTo(pagination.getCurrentPage());
   return pagination;
