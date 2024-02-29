@@ -110,7 +110,7 @@ body.dark-theme .close-icon {
 }
 
 body.dark-theme .buy-links-item:first-child {
-  filter: invert(100%) grayscale(100%);
+  filter: invert(100%);
 }
 
 .platform-image:hover {
