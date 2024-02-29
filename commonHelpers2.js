@@ -1,4 +1,4 @@
-import{a as k,c as v,b as y,d as P,r as b,e as l}from"./assets/header-5dd58675.js";import{P as S}from"./assets/vendor-94a85c0e.js";function $({_id:t,list_name:e,author:o,title:n,book_image:s,description:i,buy_links:c}){return`<li class="shopping-item" data-id="${t}">
+import{b as k,d as v,a as y,c as P,r as b,e as l}from"./assets/header-5dd58675.js";import{P as S}from"./assets/vendor-94a85c0e.js";function $({_id:t,list_name:e,author:o,title:n,book_image:s,description:i,buy_links:c}){return`<li class="shopping-item" data-id="${t}">
             <img
               class="shopping-img"
               src="${s}"
@@ -17,7 +17,7 @@ import{a as k,c as v,b as y,d as P,r as b,e as l}from"./assets/header-5dd58675.j
                   
                 >
                   <svg class="trash-btn-icon" height="16" width="16">
-                    <use href="./img/icons/icons.svg#icon-trash"></use>
+                    <use href="../img/icons/icons.svg#icon-trash"></use>
                   </svg>
                 </button>
               </div>
