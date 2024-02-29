@@ -69,7 +69,7 @@ body.dark-theme .header-burger span {
 } */
 .header-container {
   width: 100%;
-  z-index: 99;
+  z-index: 999;
   background-color: var(--white);
   display: flex;
   padding-top: 18px;

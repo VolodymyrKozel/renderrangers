@@ -56,6 +56,10 @@
   white-space: nowrap;
 }
 
+  .sellers-exclude .sellers-item {
+    display: block;
+  }
+
 @media screen and (min-width: 768px) {
   .sellers-exclude {
     display: block;
