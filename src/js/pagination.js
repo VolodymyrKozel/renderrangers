@@ -3,7 +3,7 @@ import 'tui-pagination/dist/tui-pagination.css';
 import '../css/pagination.css';
 import renderMarkup from './helpers/renderMarkup';
 import shoppingListTemplate from './template/shoppingListTemplate';
-export function createPagination(containerCart, currentBooks, update) {
+export function createPagination(containerCart, currentBooks) {
   // контейнер для пагінації
   const pagContainer = document.querySelector('#tui-pagination-container');
 

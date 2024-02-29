@@ -31,7 +31,7 @@ export default function templateList({
                   
                 >
                   <svg class="trash-btn-icon" height="16" width="16">
-                    <use href="../img/icons/icons.svg#icon-trash"></use>
+                    <use href="icons.svg#icon-trash"></use>
                   </svg>
                 </button>
               </div>
