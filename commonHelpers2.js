@@ -1,4 +1,4 @@
-import{i as b,b as k,d as S,a as $,c as v,r as L,e as i}from"./assets/header-4281b3b9.js";import{P}from"./assets/vendor-94a85c0e.js";function N({_id:e,list_name:t,author:a,title:s,book_image:o,description:n,buy_links:r}){return`<li class="shopping-item" data-id="${e}">
+import{i as b,b as k,d as S,a as $,c as v,r as L,e as i}from"./assets/header-2bc75c4b.js";import{P}from"./assets/vendor-94a85c0e.js";function N({_id:e,list_name:t,author:a,title:s,book_image:o,description:n,buy_links:r}){return`<li class="shopping-item" data-id="${e}">
             <img
               class="shopping-img"
               src="${o}"
