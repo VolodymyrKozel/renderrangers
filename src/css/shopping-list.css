@@ -35,7 +35,9 @@ display: none;
 .shopping-list-color {
   color: #4f2ee8;
 }
-
+body.dark-theme .shopping-list-container-text {
+  color: #fff;
+}
 .shopping-list-container-text {
   font-weight: 400;
   font-size: 14px;
@@ -62,8 +64,6 @@ display: none;
 body.dark-theme .shopping-item {
   background-color: var(--black);
 }
-
-
 
 .shopping-img {
   width: 100px;
@@ -197,7 +197,7 @@ body.dark-theme .shopping-item {
   .shopping-section {
     padding-top: 0;
   }
-.shopping-list-container {
+  .shopping-list-container {
     height: 679px;
   }
   .shopping-list-text {

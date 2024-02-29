@@ -55,7 +55,7 @@ body.dark-theme .header-burger span {
 
 .header {
   width: 100%;
-  background: (var(--white), 0.9);
+  background-color: (var(--white));
 }
 
 /* .header::before {
