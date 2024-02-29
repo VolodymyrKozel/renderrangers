@@ -3,7 +3,11 @@ import 'tui-pagination/dist/tui-pagination.css';
 import '../css/pagination.css';
 import renderMarkup from './helpers/renderMarkup';
 import shoppingListTemplate from './template/shoppingListTemplate';
-export function createPagination(containerCart, currentBooks) {
+import LocalStorage from './helpers/localStorageHelper';
+
+const storeName = 'cart';
+
+export function createPagination(containerCart, currentBooks, page = 1) {
   // контейнер для пагінації
   const pagContainer = document.querySelector('#tui-pagination-container');
 
@@ -21,29 +25,24 @@ export function createPagination(containerCart, currentBooks) {
     visiblePages,
     centerAlign: true,
   };
-  /* if (currentBooks.length > itemsPerPage)  */
+  if (currentBooks.length / itemsPerPage <= 1) {
+    pagContainer.style.display = 'none';
+  }
   // створення пагінації
   const pagination = new Pagination(pagContainer, options);
 
   // слухач переходу по сторінках
-  pagination.on('afterMove', event => {
+  pagination.on('beforeMove', event => {
     const currentPage = event.page;
-    const prevPage = currentPage;
     const booksOnPage = currentBooks.slice(
       (currentPage - 1) * itemsPerPage,
       currentPage * itemsPerPage
     );
     const books = renderMarkup(shoppingListTemplate, booksOnPage);
     containerCart.innerHTML = books;
-    pagination.prevPage = prevPage;
   });
-  pagination.movePageTo(pagination.getCurrentPage());
+  pagination.movePageTo(page);
   return pagination;
-}
-
-// функція для рендеру і переходу по сторінках
-function onPageChange(totalItems) {
-  //  renderItem(totalItems);
 }
 
 // тест
