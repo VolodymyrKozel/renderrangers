@@ -2,6 +2,7 @@ import apple from '../../img/amazon-1x.png';
 import amazon from '../../img/apple-1x.png';
 import apple2x from '../../img/amazon-2x.png';
 import amazon2x from '../../img/apple-2x.png';
+import icons from '../../img/icons/icons.svg';
 
 import renderMarkup from '../helpers/renderMarkup';
 export default function modalTemplate({
@@ -16,7 +17,7 @@ export default function modalTemplate({
   <section class="modalmenu">
       <button type="button" id="modal-close-id" class="close-button modal-close-button" width="28" height="28">
       <svg class="close-icon" width="12" height="12">
-        <use href="./img/icons/icons.svg#icon-x-close"></use>
+        <use href="${icons}#icon-x-close"></use>
       </svg>
     </button>
   <div class="modal-container">
