@@ -74,7 +74,7 @@ body.dark-theme .category-button.active {
 }
 
 body.dark-theme .scroll {
-  scrollbar-color: #000 #000;
+  scrollbar-color: #000 #202024;
 }
 
 .scroll::-webkit-scrollbar {
