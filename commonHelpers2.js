@@ -1,4 +1,4 @@
-import{b as h,d as k,a as v,c as y,r as P,e as r}from"./assets/header-5dd58675.js";import{P as b}from"./assets/vendor-94a85c0e.js";const $="/renderrangers/assets/icons-509775d3.svg";function S({_id:t,list_name:e,author:o,title:n,book_image:s,description:g,buy_links:i}){return`<li class="shopping-item" data-id="${t}">
+import{b as h,d as k,a as v,c as y,r as P,e as r}from"./assets/header-aba3b3a7.js";import{P as b}from"./assets/vendor-94a85c0e.js";const $="/renderrangers/assets/icons-509775d3.svg";function S({_id:t,list_name:e,author:o,title:n,book_image:s,description:g,buy_links:i}){return`<li class="shopping-item" data-id="${t}">
             <img
               class="shopping-img"
               src="${s}"
