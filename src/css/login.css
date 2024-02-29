@@ -7,12 +7,7 @@
     background-color: rgba(0, 0, 0, 0.5);
     z-index: 1500;
     display: none;
-    background-color: var(--violet;);
-}
-
-body.dark-theme .button-close-icon {
-    stroke-width: 2px;
-    stroke: #f6f6f6;
+    background-color: var(--color-blue-component);
 }
 
 .modal-login-form {
@@ -21,17 +16,12 @@ body.dark-theme .button-close-icon {
     width: 335px;
     height: 384px;
     background-color: #f6f6f6;
-    border: 2px solid #111;
+    border: 2px solid #111111;
     border-radius: 18px;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     z-index: 2000;
-}
-
-
-body.dark-theme .modal-login-form {
-    background-color: #202024;
 }
 
 .sign {
@@ -44,8 +34,9 @@ body.dark-theme .modal-login-form {
 
 .signIn,
 .signUp {
-    font-size: 14px;
-    line-height: 1.28571;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 1.33333;
     letter-spacing: -0.01em;
     text-transform: uppercase;
     color: rgba(17, 17, 17, 0.5);
@@ -57,10 +48,6 @@ body.dark-theme .modal-login-form {
     color: var(--violet);
 }
 
-body.dark-theme .signIn, .signUp {
-    color: rgba(246, 246, 246, 0.5);
-}
-
 ::placeholder {
     font-family: 'DM Sans';
     font-style: normal;
@@ -69,7 +56,7 @@ body.dark-theme .signIn, .signUp {
     line-height: 18px;
     letter-spacing: -0.01em;
     text-transform: uppercase;
-    color: var(--black-1);
+    color: var(--dark-theme-componemt);
 }
 
 .modal-login-in,
@@ -83,7 +70,6 @@ body.dark-theme .signIn, .signUp {
     padding: 0px;
     gap: 40px;
     align-items: center;
-    color: sIGN In;
 }
 
 .modal-login-form-close-btn {
@@ -116,53 +102,37 @@ body.dark-theme .signIn, .signUp {
     display: flex;
     flex-direction: row;
     align-items: center;
-    padding: 16px 173px 16px 24px;
+    padding-top: 16px;
+    padding-bottom: 16px;
+    padding-left: 24px;
     margin: auto;
     width: 295px;
     height: 50px;
-    border: 2px solid #111;
+    border: 2px solid var(--dark-theme-componemt);
     border-radius: 40px;
-    font-weight: 700;
-    font-size: 16px;
-    line-height: 1.125;
-    letter-spacing: -0.01em;
-    text-transform: uppercase;
-    color: #111;
-    background-color: #f6f6f6;
 }
-
-/* body.dark-theme .modal-login-form-name, .modal-login-form-email, .modal-login-form-password {
-    border: 2px solid #f6f6f6;
-    background: #202024;
-    color: #f6f6f6;
-} */
-
 
 .modal-login-btn-up,
 .modal-login-btn-in {
-    border-radius: 40px;
-    padding: 16px 114px;
     width: 294px;
     height: 50px;
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: flex-start;
+    padding: 16px 113px;
     gap: 10px;
-    background:#111;
-    margin: 0 auto;
+    background: var(--dark-theme-componemt);
+    border-radius: 40px;
+    margin: auto;
+    font-family: 'DM Sans';
+    font-style: normal;
     font-weight: 700;
     font-size: 16px;
-    line-height: 1.125;
-    letter-spacing: -0.01em;
+    line-height: 18px;
+    letter-spacing: -1%;
     text-transform: uppercase;
     color: #f3f3f3;
-}
-
-body.dark-theme .modal-login-btn-up,
-.modal-login-btn-in {
-    background-color: #f6f6f6;
-    color: #202024;
 }
 
 .modal-login-list {
@@ -175,12 +145,6 @@ body.dark-theme .modal-login-btn-up,
     bottom: 40px;
     left: 50%;
     transform: translateX(-50%);
-}
-
-.is-hidden {
-    opacity: 0;
-    pointer-events: none;
-    transition: opacity 0.3s ease;
 }
 
 @media screen and (min-width: 768px) {
@@ -256,6 +220,7 @@ body.dark-theme .modal-login-btn-up,
         line-height: 1.33;
         width: fit-content;
     }
+
 
 
     .is-hidden {
