@@ -38,11 +38,18 @@ window.addEventListener('keydown', function (event) {
 });
 
 function onSignInClick() {
+  signIn.classList.add('underline');
+  signUp.classList.remove('underline');
   formIn.classList.remove('is-hidden');
   formUp.classList.add('is-hidden');
 }
 
 function onSignUpClick() {
+  signUp.classList.add('underline');
+  signIn.classList.remove('underline');
   formIn.classList.add('is-hidden');
   formUp.classList.remove('is-hidden');
 }
+
+
+
