@@ -1,8 +1,7 @@
 import { getDataBooks } from './Api/uBooksApi';
 import { getLoader } from './helpers/loader';
-import { getCategoryBooks } from './category-card';
 import { refs } from './refs';
-
+import { selectedCategory } from './category-list';
 
 export const getTopBooksData = async () => {
   // розмітка секції
@@ -40,7 +39,7 @@ export const getTopBooksData = async () => {
     }, 500);
 
     // додаємо слухач
-    booksList.addEventListener('click', onCategoryClick);
+    booksList.addEventListener('click', selectedCategory);
   } catch (err) {
     console.error(err);
   }
@@ -55,19 +54,6 @@ function renderTopBooks(booksList, topBooks) {
 
 // дефолтне завантаження сторінки
 getTopBooksData();
-
-// функція обробника подій
-async function onCategoryClick(event) {
-  event.preventDefault();
-  if (event.target.nodeName !== 'BUTTON') {
-    return; // користувач клікнув між кнопками
-  }
-  const categoryName = event.target;
-  const { name } = categoryName.dataset;
-
-  // виклик завантаження категорій
-  await getCategoryBooks({ category: name });
-}
 
 //  функція для рандомного вибору 4 категорій з масиву книг
 function getRandomBooks(books, count) {

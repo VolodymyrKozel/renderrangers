@@ -5,22 +5,23 @@ import renderMarkup from './helpers/renderMarkup';
 import { getTopBooksData } from './top-sellers';
 
 refs.categoryListElem.addEventListener('click', selectedCategory);
-function selectedCategory(e) {
+export function selectedCategory(e) {
   if (e.target.nodeName !== 'BUTTON' || e.target.classList.contains('active')) {
     return; // користувач клікнув між кнопками
   }
   refs.categoryListElem.querySelector('.active').classList.remove('active');
   const categoryName = e.target;
-  categoryName.classList.add('active');
-  if (categoryName.textContent === 'ALL CATEGORIES') {
+  const { name } = categoryName.dataset;
+  document.querySelector(`[data-name="${name}"]`).classList.add('active');
+  if (name === 'ALL CATEGORIES') {
     getTopBooksData();
   } else {
-    getCategoryBooks({ category: categoryName.textContent });
+    getCategoryBooks({ category: name });
   }
 }
 function categoryTemplate({ list_name, classButton = '' }) {
   return `<li class="category-list">
-      <button class="category-button ${classButton}" type="button">${list_name}</button>
+      <button class="category-button ${classButton}" data-name="${list_name}" type="button">${list_name}</button>
     </li>`;
 }
 //aсинхронна функція чекає на відповідь з сервера
