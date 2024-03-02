@@ -42,8 +42,8 @@ export const getCategoryBooks = async params => {
 };
 
 function handleMain(e) {
-  console.log(e.target);
   if (e.target.textContent === 'See more') {
+    console.log(e.target);
     return;
   }
   const id = e.target.closest('.sellers-item').dataset.id;
